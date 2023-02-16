@@ -1,0 +1,254 @@
+ 
+# Posthoc analysis to assess fold change from maternal baseline to cord blood in immunologic biomarkers as CoR for endpoint 2
+
+For each of the four antibody markers, post-hoc analyses (not specified in the SAP) were conducted to assess log10 fold-rise from the enrollment sample to the infant cord blood sample as a correlate of risk for endpoint 2.  These analyses were implemented in the same way as specified in Objective 1 of the SAP for assessing fold-rise from the enrollment sample to the Day 14 sample in mothers, including logistic regression modeling adjusting for baseline risk factors and non-parametric threshold regression adjusting for baseline risk factors.  
+
+\textbf{Summary of results}
+
+As seen in Table `r visc_ref("tab:CoR_obj1a_cordoverd0")`, for placebo recipients, the results showed no evidence of correlates of risk (logistic regression p-values > 0.20 for the 4 antibody markers).  For vaccine recipients, the markers were consistent inverse correlates of risk (p-values 0.020—0.059), with point estimates of odds ratios per 10-fold increase in marker value 0.24, 0.39, 0.36, and 0.29 for RSVA, RSVB, EIA, and PCA, respectively.  Therefore, the RSVA marker had the strongest estimated association, which also was the case for fold-rise from enrollment to Day 14.  Yet, for fold-rise from enrollment to infant cord blood RSVA also had the narrowest confidence interval (95\% CI 0.08 to 0.79), whereas EIA had the narrowest confidence interval for fold-rise from enrollment to Day 14 (95\% CI 0.06 to 0.62).  The strengths of estimated associations of fold-rise from enrollment to infant cord blood sample were weaker than those for fold-rise from enrollment to Day 14, with odds ratios 0.13, 0.19, 0.19, 0.21 for RSVA, RSVB, EIA, and PCA, respectively.  Given that RSVA had the strongest association, these results suggest that development of new anti-antigen A neutralizing antibodies that make it to the infant at birth may be an important correlate of risk in vaccinated mothers.  Yet, the fact that the RSVA fold-rise to infant cord blood association was completely absent in the placebo group (OR = 1.32) suggests that this marker of low risk is specific to new antibodies made by vaccination, that is, it would not satisfy the Prentice definition of a surrogate endpoint.
+
+Results for the non-parametric threshold regression are reported as point and simultaneous 95\% confidence interval estimates of the risk of RSV endpoint 2 varying over subgroups of vaccine recipients defined by antibody marker above a given threshold v, repeating the analysis over all possible thresholds v. The risk for endpoint 2 decreases with fold rise (marker value in infant cord blood relative to marker at day 0) for all 4 markers across subgroups defined by increasing thresholds, and approaches zero risk at highest thresholds (Figures `r visc_ref("tab:PLOT_EIA_log10cordoverd0_y2_Vaccine_pointwise_monotone")`, `r visc_ref("tab:PLOT_PCA_log10cordoverd0_y2_Vaccine_pointwise_monotone")`, `r visc_ref("tab:PLOT_RSVA_log10cordoverd0_y2_Vaccine_pointwise_monotone")` and `r visc_ref("tab:PLOT_RSVB_log10cordoverd0_y2_Vaccine_pointwise_monotone")`). However, for RSVA and RSVB fold-rise, the risk for endpoint 2 is seen to decrease more steeply. There were no RSV disease endpoint 2 cases above fold-rises of 4.0 and 5.6 for RSVA and RSVB, respectively (Tables `r visc_ref("tab:TABLE_RSVA_log10cordoverd0_y2_Vaccine_pointwise")` and `r visc_ref("tab:TABLE_RSVB_log10cordoverd0_y2_Vaccine_pointwise")`). In comparison, for EIA and PCA markers, no RSV disease endpoint 2 cases were seen above fold-rises of 24 and 22, respectively (Tables `r visc_ref("tab:TABLE_EIA_log10cordoverd0_y2_Vaccine_pointwise")` and `r visc_ref("tab:TABLE_PCA_log10cordoverd0_y2_Vaccine_pointwise")`).
+
+
+## Logistic regression modeling
+
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt1_cordoverd0}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt0_cordoverd0}
+}
+    \caption{Post-hoc extension of CoR objective 1 to study association of the disease endpoint 2 and the fold change from maternal baseline to cord blood in immunologic biomarkers. Each cell corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data. All models adjust for maternal risk score. }
+    \label{tab:CoR_obj1a_cordoverd0}
+\end{table}
+
+
+\clearpage
+
+## Non-parametric CoR threshold estimation
+
+### Point-wise 95\% confidence intervals
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14_y2_Vaccine_pointwise_monotone.png} -->
+<!--    \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14_y2_Vaccine_pointwise.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14overd0_y2_Vaccine_pointwise_monotone.png} -->
+<!--     \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14overd0_y2_Vaccine_pointwise.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cord_y2_Vaccine_pointwise_monotone.png} -->
+<!--    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10cord_y2_Vaccine_pointwise.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cordoverd0_y2_Vaccine_pointwiseCI_monotone.pdf}
+   \caption{Point-wise 95\% confidence intervals for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of EIA marker in infant cord blood relative to EIA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+   \label{tab:PLOT_EIA_log10cordoverd0_y2_Vaccine_pointwise_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth, height=4.7cm]{\pathThreshinput/TABLE_EIA_log10cordoverd0_y2_Vaccine_pointwise.pdf}
+  \caption{Non-monotone corrected estimates with point-wise 95\% confidence intervals for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of EIA marker in infant cord blood relative to EIA marker at day 0. }
+  \label{tab:TABLE_EIA_log10cordoverd0_y2_Vaccine_pointwise}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_PCA_log10cordoverd0_y2_Vaccine_pointwiseCI_monotone.pdf}
+   \caption{Point-wise 95\% confidence intervals for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of PCA marker in infant cord blood relative to PCA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+   \label{tab:PLOT_PCA_log10cordoverd0_y2_Vaccine_pointwise_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_PCA_log10cordoverd0_y2_Vaccine_pointwise.pdf}
+  \caption{Non-monotone corrected estimates with point-wise 95\% confidence intervals for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of PCA marker in infant cord blood relative to PCA marker at day 0. }
+     \label{tab:TABLE_PCA_log10cordoverd0_y2_Vaccine_pointwise}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVA_log10cordoverd0_y2_Vaccine_pointwiseCI_monotone.pdf}
+   \caption{Point-wise 95\% confidence intervals for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of RSVA marker in infant cord blood relative to RSVA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_RSVA_log10cordoverd0_y2_Vaccine_pointwise_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVA_log10cordoverd0_y2_Vaccine_pointwise.pdf}
+  \caption{Non-monotone corrected estimates with point-wise 95\% confidence intervals for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of RSVA marker in infant cord blood relative to RSVA marker at day 0. }
+        \label{tab:TABLE_RSVA_log10cordoverd0_y2_Vaccine_pointwise}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVB_log10cordoverd0_y2_Vaccine_pointwiseCI_monotone.pdf}
+   \caption{Point-wise 95\% confidence intervals for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of RSVB marker in infant cord blood relative to RSVB marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+   \label{tab:PLOT_RSVB_log10cordoverd0_y2_Vaccine_pointwise_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVB_log10cordoverd0_y2_Vaccine_pointwise.pdf}
+  \caption{Non-monotone corrected estimates with point-wise 95\% confidence intervals for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of RSVB marker in infant cord blood relative to RSVB marker at day 0. }
+     \label{tab:TABLE_RSVB_log10cordoverd0_y2_Vaccine_pointwise}
+\end{table}
+
+
+### Simultaneous 95% confidence intervals/bands
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14_y2_Vaccine_monotone.png} -->
+<!--    \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows simultaneous 95\% confidence bands The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14_y2_Vaccine_simult.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14overd0_y2_Vaccine_monotone.png} -->
+<!--     \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14overd0_y2_Vaccine_simult.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cord_y2_Vaccine_monotone.png} -->
+<!--    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10cord_y2_Vaccine_simult.png} -->
+<!--     \caption{The table shows the non-monotone corrected estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cordoverd0_y2_Vaccine_simultaneousCI_monotone.pdf}
+   \caption{Simultaneous 95\% confidence bands for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of EIA marker in infant cord blood relative to EIA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+   \label{tab:PLOT_EIA_log10cordoverd0_y2_Vaccine_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10cordoverd0_y2_Vaccine_simult.pdf}
+  \caption{Non-monotone corrected estimates with simultaneous 95\% confidence bands for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of EIA marker in infant cord blood relative to EIA marker at day 0. }
+\end{table}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_PCA_log10cordoverd0_y2_Vaccine_simultaneousCI_monotone.pdf}
+   \caption{Simultaneous 95\% confidence bands for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of PCA marker in infant cord blood relative to PCA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_PCA_log10cordoverd0_y2_Vaccine_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_PCA_log10cordoverd0_y2_Vaccine_simult.pdf}
+  \caption{Non-monotone corrected estimates with simultaneous 95\% confidence bands for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of PCA marker in infant cord blood relative to PCA marker at day 0. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVA_log10cordoverd0_y2_Vaccine_simultaneousCI_monotone.pdf}
+   \caption{Simultaneous 95\% confidence bands for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of RSVA marker in infant cord blood relative to RSVA marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_RSVA_log10cordoverd0_y2_Vaccine_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVA_log10cordoverd0_y2_Vaccine_simult.pdf}
+  \caption{Non-monotone corrected estimates with simultaneous 95\% confidence bands for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of RSVA marker in infant cord blood relative to RSVA marker at day 0. }
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVB_log10cordoverd0_y2_Vaccine_simultaneousCI_monotone.pdf}
+   \caption{Simultaneous 95\% confidence bands for the conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with the fold rise of RSVB marker in infant cord blood relative to RSVB marker at day 0 greater than a given threshold. Dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_RSVB_log10cordoverd0_y2_Vaccine_monotone}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVB_log10cordoverd0_y2_Vaccine_simult.pdf}
+  \caption{Non-monotone corrected estimates with simultaneous 95\% confidence bands for the Marginalized risk of RSV disease (defined as RSV-associated LRTI with severe hypoxemia) by threshold of the fold rise of RSVB marker in infant cord blood relative to RSVB marker at day 0. }
+\end{table}
+
+

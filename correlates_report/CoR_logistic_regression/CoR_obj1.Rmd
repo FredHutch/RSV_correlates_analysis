@@ -1,0 +1,418 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+## Correlates of risk objective 1
+
+### Logistic regression-based analyses
+
+In this objective we assessed the association of each of the 16 immunologic biomarkers, one-at-a-time, with each of the three endpoints within each study arm. All markers were on the log10 scale unless otherwise specified.
+
+
+For maternal time points (D0, D14), the analyses adjusted for the maternal risk score and the indicator for whether the number of days from vaccination to birth was greater than or equal to 30 days; for cord blood markers, the analyses adjusted for the maternal risk score alone.
+
+
+
+Results for EIA and PCA were estimated from phase 1 data using the glm function. 
+Results for RSVA and RSVB were estimated from phase 2 data using the osDesign package (@breslow1997maximum) for endpoint 1 and the survey package (@lumley2010complex) for endpoints 2 and 3. 
+\bigskip
+
+osDesign was the specified regression method in the SAP. In the terminology used by osDesign, there were 20 strata in our design, 10 in vaccine and 10 in placebo (crossing 5 regions with time from vaccination to birth less than 30 days (<30d)). The numbers of cases and controls in these strata were input to osDesign::tps; no counts can be zero, otherwise we obtained a "zero cell frequency at phase I" error. For endpoint 1, there were no cases in the stratum SS/<30d in both the placebo arm and the vaccine arm. These two had small strata: 11 controls in the placebo arm (out of 784 total) and 18 controls in the vaccine arm (out of 1553 total) and 2 controls from each stratum were sampled for biomarkers measurements. We thus removed these two strata from the analyses for endpoint 1.
+\bigskip
+
+An alternative method for making inference based on phase 2 data is to use the svyglm function from the survey package. Results for RSVA and RSVB for endpoint 1 using the survey package (not shown) were close to the results obtained using the osDesign package. For endpoints 2 and 3, four out of ten strata in placebo and five out of ten strata in vaccine are empty, so we used the survey package for endpoints 2 and 3. For the survey package, when a stratum has only one sample, "there is no contribution to the variance from the first stage of sampling in this stratum," (https://r-survey.r-forge.r-project.org/survey/exmample-lonely.html), the survey package offers several options, and the best option to us seems to be options(survey.lonely.psu="adjust"), by which "the stratum contribution to the variance is taken to be the average of all the strata with more than one primary sampling unit. This might be appropriate if the lonely PSUs were due to data missing at random rather than to design deficiencies. Other options include removing the strata or ignore the first stage sampling variance in those strata."
+\bigskip
+
+Based on logistic regression modeling, there was no evidence for a correlate of risk of endpoint 1 for any of the markers for either treatment arm 
+(Figures \ref{hr_forest_y1_trt1} and \ref{hr_forest_y1_trt0}). 
+In contrast, for endpoint 2, fold-rise of each of the 4 markers EIA, PCA, RSVA, RSVB was inversely associated with outcome, 
+with odds ratios for the vaccine arm of 0.13, 0.19, 0.19, 0.21 per 10-fold increase of RSVA, RSVB, EIA, and PCA, respectively
+(Figure \ref{hr_forest_y2_trt1}).  The precision of the correlate was greater for EIA and PCA than for RSVA and RSVB, with narrower confidence intervals about the odds ratios.  Figure 
+\ref{hr_forest_y2_trt0} shows results for endpoint 2 and the placebo arm.
+
+For CoR objective 1, the only marker that passed the preset criterion of either q value of 0.1 or the more stringent Holm-adjusted p value of 0.05 was EIA fold change (d14 over d0) for endpoint 2 in the vaccine arm, which had a P value of 0.005 and q value of 0.085 (Table \ref{tab:CoR_obj1a_pvals}). In fact, Table \ref{tab:CoR_obj1a} shows that not just EIA, but also PCA and RSVB fold change, have an inverse association with risk for endpoint 2 in the vaccine arm that was significant before multiplicity adjustment, and RSVA also has a trend.  The point and 95% confidence interval estimates of odds ratios support substantial inverse associations of each antibody marker with RSV risk.  Therefore, the message from the results is that for all four assays, fold-rise in vaccine recipients was consistently an inverse correlate of risk of endpoint 2 with a large estimated effect size.  Given there were only 14 vaccine breakthrough type 2 endpoints, these consistent results with the 95% confidence intervals generally lying below one (e.g., 95% CI 0.06 to 0.62 around the odds ratio estimate of 0.21 for the fold-rise EIA marker) highlights the strong correlates effect sizes.  Point estimates for the D14 versions of the markers, and the cord blood versions of the markers, indicated inverse associations, but with odds ratio estimates much closer to one.
+
+
+<!-- Peter to Youyi 1/3/2021: I think the forest plot figure for the 4 markers fold-rise needs to be added (the one for the exec summary), for endpoint 2.  Probably also adding this forest plot figure -->
+<!-- for the 4 markers fold-rise for endpoints 1 and 3 would help too, as we need overall summaries of results.  And similarly the same forest plots for the d14 markers (not fold-rise).  Anything i can do to help (e.g., handy forest plotting function)? -->
+
+
+\bigskip
+
+In the placebo arm, the log10 d0 measurements for the four assays showed no association with outcome. In the vaccine arm, the log10 d0 measurements showed trends toward direct associations with RSV risk; this can be explained as an induced association because d0 measurement is inversely associated with fold change. (When we include both d0 and fold change EIA in the same model for endpoint 2 and the vaccine arm, both are inversely correlated with risk. But to see the effect of fold change, we should not adjust for baseline, because baseline is associated with fold change. Leaving baseline out is justified because in the placebo arm it is not associated with risk.)
+\bigskip
+
+EIA or PCA were fitted using phase 2 data in order to compare with RSVA and RSVB to see which ones appeared to be stronger correlates on a more fair footing. The results suggest that EIA was better than RSVA and RSVB, which in turn were better than PCA. It is interesting that EIA and PCA were highly correlated (Pearson 0.95 in phase 2) and yet their performances as correlates of risk differed. 
+\bigskip
+
+For endpoint 2 and the vaccine arm, the single marker regression p value for EIA fold change was 0.00627; the multiplicity Holm and BH adjusted p values were 0.100 and 0.100. 
+The multiplicity adjustment approach we took may have been conservative because it did not account for the correlation between markers, and all markers were included in the multiplicity adjustment.  Alternative less-conservative approaches to multiplicity adjustment would be the following:
+
+1) Due to correlation between markers, a permutation-based procedure may be worth doing. 
+2) We could be more selective in which markers to include in the multiplicity adjustment. For example, we may exclude cord blood markers, baseline markers, or both from multiplicity adjustment and treat them as secondary objectives.
+
+Some post-hoc exploratory preliminary Westfall and Young permutation-based multiplicity adjusted p values (@westfall1989p) for endpoint 2 and the vaccine arm are shown in Table \ref{tab:CoR_obj1a_y2_trt1_padj}. The permutation procedure can be potentially improved because the fact that we have a mix of phase 1 and phase 2 analyses presents a challenge. Furthermore, p.FWER is 0.0443 if cord blood is dropped, and 0.0311 if cord blood and baseline are dropped. These results are preliminary because the way permutation is done is complicated by the fact that some markers are phase 1 and some are phase 2. In these results, these facts were ignored when permuting and fit glm for all markers. 
+
+
+
+
+
+\clearpage
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1a_y1_trt1}
+    
+    % it is important to have this empty line above for formatting
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1a_y1_trt0}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt0}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1a_y3_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1a_y3_trt0}
+}
+    \caption{CoR objective 1. Each cell corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data.
+    Time from vaccination to birth is adjusted for in analyses of maternal markers but not in analyses of infant markers. All models adjust for maternal risk score.
+     Phase 1 data are used for EIA and PCA.
+     }
+    \label{tab:CoR_obj1a}
+\end{table}
+
+
+
+
+\clearpage
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj1a_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1a_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1a_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj1a_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1a_y3_trt0_pvals}
+}
+    \caption{P-values multiplicity adjustment for CoR objective 1. Vaccine arm on the left and placebo arm on the right. Phase 1 data are used for EIA and PCA.}
+    \label{tab:CoR_obj1a_pvals}
+\end{table}
+
+\clearpage
+\begin{table}[H]
+    \input{\pathCoRinput/CoR_obj1a_y2_trt1_padj}
+    \caption{CoR objective 1, endpoint 2, vaccine arm. Westfall and Young permutation-based multiplicity adjustment. Permutation is done by tethering the end point and the clinical covariates together and permuting the marker only. 
+     }
+    \label{tab:CoR_obj1a_y2_trt1_padj}
+\end{table}
+
+
+
+
+\clearpage
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1b_y1_trt1}
+    
+    % it is important to have this empty line above for formatting
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1b_y1_trt0}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1b_y2_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1b_y2_trt0}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1b_y3_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1b_y3_trt0}
+}
+    \caption{CoR objective 1. Each cell corresponds to one model. All marker models are fitted to phase 2 data. Time from vaccination to birth is adjusted for in analyses of maternal markers but not in analyses of infant markers. All models adjust for maternal risk score.
+     Phase 2 data are used for EIA and PCA.}
+    \label{tab:CoR_obj1b}
+\end{table}
+
+\clearpage
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj1b_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1b_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj1b_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1b_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj1b_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj1b_y3_trt0_pvals}
+}
+    \caption{P-values multiplicity adjustment for CoR objective 1. Vaccine arm on the left and placebo arm on the right.  Phase 2 data are used for EIA and PCA.}
+    \label{tab:CoR_obj1b_pvals}
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y1_vacc}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 1 status in the vaccine arm}
+    \label{fig:boxplot_log10d14overd0_by_y1_vacc}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y2_vacc}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 2 status in the vaccine arm}
+    \label{fig:boxplot_log10d14overd0_by_y2_vacc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y3_vacc}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 3 status in the vaccine arm}
+    \label{fig:boxplot_log10d14overd0_by_y3_vacc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y1_vacc}
+    \caption{Boxplots of cord by endpoint 1 status in the vaccine arm}
+    \label{fig:boxplot_log10cord_by_y1_vacc}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y2_vacc}
+    \caption{Boxplots of cord by endpoint 2 status in the vaccine arm}
+    \label{fig:boxplot_log10cord_by_y2_vacc}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y3_vacc}
+    \caption{Boxplots of cord by endpoint 3 status in the vaccine arm}
+    \label{fig:boxplot_log10cord_by_y3_vacc}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y1_plac}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 1 status in the placebo arm}
+    \label{fig:boxplot_log10d14overd0_by_y1_plac}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y2_plac}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 2 status in the placebo arm}
+    \label{fig:boxplot_log10d14overd0_by_y2_plac}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10d14overd0_by_y3_plac}
+    \caption{Boxplots of fold change (D14 over D0) by endpoint 3 status in the placebo arm}
+    \label{fig:boxplot_log10d14overd0_by_y3_plac}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y1_plac}
+    \caption{Boxplots of cord by endpoint 1 status in the placebo arm}
+    \label{fig:boxplot_log10cord_by_y1_plac}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y2_plac}
+    \caption{Boxplots of cord by endpoint 2 status in the placebo arm}
+    \label{fig:boxplot_log10cord_by_y2_plac}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/boxplot_log10cord_by_y3_plac}
+    \caption{Boxplots of cord by endpoint 3 status in the placebo arm}
+    \label{fig:boxplot_log10cord_by_y3_plac}
+\end{figure}
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_log10d14_by_y2_vacc} -->
+<!--     \caption{Boxplots of D14 markers by endpoint 2 status in the vaccine arm} -->
+<!--     \label{fig:boxplot_log10d14overd0_by_y2_vacc} -->
+<!-- \end{figure} -->
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_log10d0_by_y2_vacc} -->
+<!--     \caption{Boxplots of D0 markers by endpoint 2 status in the vaccine arm} -->
+<!--     \label{fig:boxplot_log10d0overd0_by_y2_vacc} -->
+<!-- \end{figure} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_log10d14_by_y3_vacc} -->
+<!--     \caption{Boxplots of D14 markers by endpoint 3 status in the vaccine arm} -->
+<!--     \label{fig:boxplot_log10d14overd0_by_y3_vacc} -->
+<!-- \end{figure} -->
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_log10d0_by_y3_vacc} -->
+<!--     \caption{Boxplots of D0 markers by endpoint 3 status in the vaccine arm} -->
+<!--     \label{fig:boxplot_log10d0overd0_by_y3_vacc} -->
+<!-- \end{figure} -->
+
+\clearpage
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_by_y1_vacc} -->
+<!--     \caption{Boxplots of markers by endpoint 1 status in the vaccine arm} -->
+<!--     \label{fig:boxplot_by_y1_vacc} -->
+<!-- \end{figure} -->
+<!-- \clearpage -->
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{\pathCoRinput/../../exploratory/input/boxplot_by_y1_plac} -->
+<!--     \caption{Boxplots of markers by endpoint 1 status in the placebo arm} -->
+<!--     \label{fig:boxplot_by_y1_plac} -->
+<!-- \end{figure} -->
+<!-- \clearpage -->
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.3\textwidth]{\pathCoRinput/marginal_risk_EIA.log10d14overd0}
+    \includegraphics[width=.3\textwidth]{\pathCoRinput/marginal_risk_EIA.log10d14overd0_adjd0}
+    \includegraphics[width=.3\textwidth]{\pathCoRinput/marginal_risk_EIA}
+    \caption{Marginalized risk plots in the vaccine arm. These plots are based on the risk regression model, averaging over the distribution of maternal risk score and number of days between vaccination and birth. The horizontal lines indicate the overall risk in the placebo arm. 95\% bootstrap confidence bands are shown. Left: not adjusted for baseline concentration; middle: showing both adjusted and not adjusted for baseline concentration; right: comparing D14 and fold rise (not adjusted for baseline concentration).}
+    \label{fig:marginal_risk_EIA.log10d14overd0}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y1_trt1}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 1 in the vaccine arm.}
+    \label{hr_forest_y1_trt1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y1_trt0}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 1 in the placebo arm.}
+    \label{hr_forest_y1_trt0}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y2_trt1}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 2 in the vaccine arm.}
+    \label{hr_forest_y2_trt1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y2_trt0}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 2 in the placebo arm.}
+    \label{hr_forest_y2_trt0}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_cord_y1_trt1}
+    \caption{Forest plots of odds ratios of cord blood markers for endpoint 1 in the vaccine arm.}
+    \label{hr_forest_cord_y1_trt1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_cord_y1_trt0}
+    \caption{Forest plots of odds ratios of cord blood markers for endpoint 1 in the placebo arm.}
+    \label{hr_forest_cord_y1_trt0}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_cord_y2_trt1}
+    \caption{Forest plots of odds ratios of cord blood markers for endpoint 2 in the vaccine arm.}
+    \label{hr_forest_cord_y2_trt1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_cord_y2_trt0}
+    \caption{Forest plots of odds ratios of cord blood markers for endpoint 2 in the placebo arm.}
+    \label{hr_forest_cord_y2_trt0}
+\end{figure}
+\clearpage
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y3_trt1}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 3 in the vaccine arm.}
+    \label{hr_forest_y3_trt1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/hr_forest_y3_trt0}
+    \caption{Forest plots of odds ratios of Day 14 and fold rise markers for endpoint 3 in the placebo arm.}
+    \label{hr_forest_y3_trt0}
+\end{figure}
+\clearpage
+
+
+
+

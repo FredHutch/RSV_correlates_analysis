@@ -1,0 +1,77 @@
+
+
+
+The @vanderLaanetal2020 extension of the nonparametric CoR threshold estimation method of @donovan2019 was applied to each D14, fold-rise, and cord blood antibody marker. This extension adjusts for the baseline covariates maternal baseline risk score and the number of days between vaccination and birth using targeted maximum likelihood estimation (TMLE).  Results are reported 
+as plots of point and simultaneous 95\% confidence interval estimates of the risk of RSV endpoint 1 or 2 varying over subgroups of vaccine recipients defined by antibody marker above a given threshold v, and repeating the analysis over all possible thresholds v.  The same analysis was done pooling over vaccine and placebo recipients.
+
+For endpoint 1, Figures \ref{EIA+PCA_vacc_y1} and \ref{RSVAB_vacc_y1} show results for the vaccine arm, for each of the four antibody markers, as fold-rise, D14 values, and cord blood values.
+Figures \ref{EIA+PCA_combined_y1} and \ref{RSVAB_combined_y1} show the same results for the vaccine and placebo arms pooled.  The results show that risk of RSV disease does not change markedly depending on threshold value of any of the antibody markers. 
+
+Figures \ref{EIA+PCA_vacc_y2}--\ref{RSVAB_combined_y2} show the same analyses, except for endpoint 2.  The results show that for fold rise of EIA and PCA, RSV risk sharply decreased across subgroups defined by increasing thresholds, approaching zero risk at highest thresholds.  There were no RSV disease endpoint 2 cases above a log10 fold-rise of 1.3 for EIA or above log-10 fold-rise of 1.4 for PCA (fold-rises of about 20 and 25, respectively).  Endpoint 2 RSV risk did not change much across subgroups defined by D14 marker thresholds for any of the markers, with possible exception of decreasing risk with the highest D14 RSVA and RSVB thresholds, though the estimated effect is smaller than for the fold-rise EIA and PCA results.  RSV risk decreased with threshold of cord blood response for all four antibody markers, moreso for RSVA and RSVB, especially at highest antibody levels, than for EIA and PCA.  Results were generally similar for the vaccine arm only or combining the vaccine and placebo arms.
+
+In conclusion, the analyses did not support threshold CoPs for endpoint 1, and supported that fold rise EIA, PCA, RSVA, and RSVB all have utility as threshold CoPs for endpoint 2, and may potentially be absolute CoPs.  Moreover, D14 RSVA and D14 RSVB show potential as threshold CoPs.  Yet, the limited number of endpoint 2 cases limit precision about this inference.
+
+`r visc_clearpage()`
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/EIA+PCA_vaccine_y1.png}
+    \caption{Conditional Risk for Vaccine Group based on EIA and PCA markers: Endpoint 1}
+    \label{EIA+PCA_vacc_y1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/RSVAB_vaccine_y1.png}
+    \caption{Conditional Risk for Vaccine Group based on RSVA and RSVB markers: Endpoint 1}
+    \label{RSVAB_vacc_y1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/EIA+PCA_combined_y1.png}
+    \caption{Conditional Risk for Vaccine and Placebo Group Combined based on EIA and PCA markers: Endpoint 1}
+    \label{EIA+PCA_combined_y1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/RSVAB_combined_y1.png}
+    \caption{Conditional Risk for Vaccine and Placebo Group Combined based on RSVA and RSVB markers: Endpoint 1}
+    \label{RSVAB_combined_y1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/EIA+PCA_vaccine_y2.png}
+    \caption{Conditional Risk for Vaccine Group based on EIA and PCA markers: Endpoint 2}
+    \label{EIA+PCA_vacc_y2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/RSVAB_vaccine_y2.png}
+    \caption{Conditional Risk for Vaccine Group based on RSVA and RSVB markers: Endpoint 2}
+    \label{RSVAB_vacc_y2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/EIA+PCA_combined_y2.png}
+    \caption{Conditional Risk for Vaccine and Placebo Group Combined based on EIA and PCA markers: Endpoint 2}
+    \label{EIA+PCA_combined_y2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{nonparam_threshold/input/old/RSVAB_combined_y2.png}
+    \caption{Conditional Risk for Vaccine and Placebo Group Combined based on RSVA and RSVB markers: Endpoint 2}
+    \label{RSVAB_combined_y2}
+\end{figure}

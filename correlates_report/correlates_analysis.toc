@@ -1,0 +1,54 @@
+\contentsline {section}{\numberline {1}Executive Summary}{18}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Approach to assessing immune correlates of risk and protection}{18}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Preliminary analyses in preparation for the correlates analyses}{18}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Correlates of Risk Univariable Markers: Objective to assess each fold-rise, D14, and cord blood marker as a correlate of risk of RSV disease}{19}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Correlates of Risk Multivariable Markers: Objective to assess the estimated optimal surrogate via machine learning accounting for all of the antibody markers}{19}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Correlates of Protection: Objective to assess immune CoPs as correlates/modifiers of vaccine efficacy against RSV disease}{20}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Correlates of Protection: Objective to assess immune CoPs in terms of mediators of vaccine efficacy against RSV disease}{20}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Overall conclusions and discussion}{21}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Materials and methods}{22}{section.2}%
+\contentsline {section}{\numberline {3}Risk Score analysis}{22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Data}{22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Endpoints}{23}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Methods}{23}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Results}{24}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Tables and Figures}{25}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Most parsimonious (lowest k) superlearner models with optimal CV-AUC selected to derive the risk score}{28}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Maternal enrollment variable set}{29}{subsubsection.3.6.1}%
+\contentsline {section}{\numberline {4}Immune biomarkers unsupervised exploratory analysis (preparation for correlates analyses)}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Comparion between time points}{31}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Correlations between assays}{34}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Correlations between time points}{39}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Correlates of risk}{46}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Correlates of risk objective 1}{46}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Treatment arm, endpoint 1}{59}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Treatment arm, endpoint 2}{71}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Pooled, endpoint 1}{83}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Pooled, endpoint 2}{95}{subsubsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.2}Correlates of risk objective 2}{107}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Superlearner regression for Calculating the Estimated Optimal Surrogate}{117}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Endpoint 1, Vaccine group}{119}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Endpoint 1, Placebo group}{123}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Endpoint 2, Vaccine group}{127}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Endpoint 2, Placebo group}{130}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}Correlates of risk posthoc exploratory analyses}{133}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Correlates of protection}{137}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Baseline correlates of VE}{137}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Post-baseline correlates of VE}{138}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Mediation analysis}{143}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Posthoc CoP analyses}{144}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Appendix}{147}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Risk score analysis}{147}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Forest plots for maternal enrollment variable set for all k parameters not selected to derive the risk score}{147}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Forest plots for birth/delivery variable set for all k parameters not selected to derive the risk score}{161}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Superlearner regression for calculating the estimated optimal surrogate}{174}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Endpoint 1}{175}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Endpoint 2}{204}{subsubsection.7.2.2}%
+\contentsline {section}{\numberline {8}Posthoc analysis to assess fold change from maternal baseline to cord blood in immunologic biomarkers as CoR for endpoint 2}{233}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Logistic regression modeling}{234}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Non-parametric CoR threshold estimation}{235}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Point-wise 95\% confidence intervals}{235}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Simultaneous 95\% confidence intervals/bands}{239}{subsubsection.8.2.2}%
+\contentsline {section}{\numberline {9}References}{243}{section.9}%
+\contentsline {section}{\numberline {10}Reproducibility information}{244}{section.10}%
+\contentsline {section}{\numberline {11}Statistical Analysis Plan}{244}{section.11}%

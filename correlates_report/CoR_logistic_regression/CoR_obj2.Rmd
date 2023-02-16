@@ -1,0 +1,329 @@
+## Correlates of risk objective 2
+
+For CoR objective 2a1, multi-assay models without baseline marker adjustment fit to the phase 2 data, d14 markers are significant by Holm FWER adjustment for all endpoints, in the vaccine arm but not the placebo arm (Table \ref{tab:CoR_obj2a1_pvals}). If we remove RSVA and RSVB, the models are still significant; since the model now only contains EIA and PCA, we can fit it to the phase 1 data. The results are not significant (Table \ref{tab:CoR_obj2a3_pvals}). It is also worth noting that there is a very high collinearity between EIA and PCA at D14 in the vaccine arm (Pearson correlation 0.96).
+
+
+CoR objective 2a2 repeats objective 2a1 but adds adjustment of baseline RSVA/RSVB average. The results and conclusions are similar (Table \ref{tab:CoR_obj2a1}). 
+
+<!-- But because EIA and PCA are highly significant (Figure \ref{fig:scatterplot_eia_pca}, the interpretation of these results are in question. If we keep only one of EIA and PCA, then the generalized Wald test p values are not significant. Same for CoR objective 2a2. Also this synergy is much more pronounced in phase 2 data than in phase 1 data. -->
+
+
+For CoR objective 2b, multi-time points models, there are two ways to model the data. Since fold change can be expressed as the difference between d14 and d0 on the log scale, we can either include d0, d14, and cord blood (Table \ref{tab:CoR_obj2a1} and \ref{tab:CoR_obj2a1_pvals}) or d0, fold change, and cord blood (Table \ref{tab:CoR_obj2a2} and \ref{tab:CoR_obj2a2_pvals}). There are no significant results.
+
+
+<!-- In phase 1 data, log10 EIA - log10 PCA is significant. -->
+
+\clearpage
+
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj2a1_y1_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a1_y1_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a1_y2_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a1_y2_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj2a1_y3_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a1_y3_trt0}
+}
+    \caption{Correlates objective 2a1. Each column corresponds to one model with four assay markers from the same time point. 
+   All models are fitted to the phase 2 data. The models for maternal marker time points  (D0, D14) adjust for time from vaccination to birth whereas the models for the infant time point (cord blood) do not. 
+    All models adjust for the maternal risk score.}
+    \label{tab:CoR_obj2a1}
+\end{table}
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj2a1_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a1_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj2a1_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a1_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj2a1_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a1_y3_trt0_pvals}
+}
+    \caption{CoR objective 2a1 p-values multiplicity adjustment. Vaccine arm on the left and placebo arm on the right. Each p value is a generalized Wald test  p value for the four assays.}
+    \label{tab:CoR_obj2a1_pvals}
+\end{table}
+\clearpage
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a3_y1_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a3_y1_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a3_y2_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a3_y2_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a3_y3_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a3_y3_trt0}
+}
+    \caption{Correlates objective 2a1 variant. Each column corresponds to one model with both EIA and PCA from the same time point. All models are fitted to the phase 1 data. The models for maternal marker time points  (D0, D14) adjust for time from vaccination to birth whereas the models for the infant time point (cord blood) do not. 
+    All models adjust for the maternal risk score.}
+    \label{tab:CoR_obj2a3}
+\end{table}
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj2a3_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a3_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj2a3_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a3_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj2a3_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a3_y3_trt0_pvals}
+}
+    \caption{CoR objective 2a1 variant p-values multiplicity adjustment. Vaccine arm on the left and placebo arm on the right. Each p value is a generalized Wald testp value for the two assays.}
+    \label{tab:CoR_obj2a3_pvals}
+\end{table}
+
+
+\clearpage
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a2_y1_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a2_y1_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a2_y2_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a2_y2_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2a2_y3_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2a2_y3_trt0}
+}
+    \caption{Correlates objective 2a2. Each column corresponds to one model with four assay markers from the same time point. All models are fitted to the phase 2 data.
+    The models for maternal marker time points  (D0, D14) adjust for time from vaccination to birth whereas the models for the infant time point (cord blood) do not. 
+    All models adjust for the maternal risk score.}
+    \label{tab:CoR_obj2a2}
+\end{table}
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj2a2_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a2_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj2a2_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a2_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj2a2_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2a2_y3_trt0_pvals}
+}
+    \caption{CoR objective 2a2 p-values multiplicity adjustment. Vaccine arm on the left and placebo arm on the right. Each p value is a generalized Wald test  p value for the four assays.}
+    \label{tab:CoR_obj2a2_pvals}
+\end{table}
+
+
+
+\clearpage
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+    \setlength{\tabcolsep}{.5ex}
+    \input{\pathCoRinput/CoR_obj2b1_y1_trt1}
+    
+    \vspace{5pt}
+    \setlength{\tabcolsep}{.5ex}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj2b1_y1_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b1_y2_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b1_y2_trt0}
+}    
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b1_y3_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b1_y3_trt0}
+}
+}
+    \caption{Correlates objective 2b1. Each column corresponds to one model with three time point (d0, d14, cord blood) markers for the same assay. RSVA and RSVB models are fitted to the phase 2 data, EIA and PCA data are fitted to the phase 1 data. The models do not adjust for time from vaccination to birth. 
+    The models adjust for maternal risk score.}
+    \label{tab:CoR_obj2b1}
+\end{table}
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj2b1_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b1_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj2b1_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b1_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj2b1_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b1_y3_trt0_pvals}
+}
+    \caption{CoR objective 2b1 p-values multiplicity adjustment. Vaccine arm on the left and placebo arm on the right. Each p value is a generalized Wald test p value for the three time points.}
+    \label{tab:CoR_obj2b1_pvals}
+\end{table}
+
+
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    Vaccine arm\\
+    \setlength{\tabcolsep}{.5ex}
+    \input{\pathCoRinput/CoR_obj2b2_y1_trt1}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \setlength{\tabcolsep}{.5ex}
+    \input{\pathCoRinput/CoR_obj2b2_y1_trt0}
+    
+    \bigskip
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b2_y2_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b2_y2_trt0}
+}    
+    \bigskip
+    \textbf{Endpoint 3}\\
+    Vaccine arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b2_y3_trt1}
+}    
+    \vspace{5pt}
+    Placebo arm\\
+\resizebox{1.1\textwidth}{!}{%
+    \input{\pathCoRinput/CoR_obj2b2_y3_trt0}
+}
+}
+    \caption{Correlates objective 2b2. Each column corresponds to one model with three time point (d0, d14/d0, cord blood) markers for the same assay fitted to the phase 2 data. Results for endpoint 1 are obtained using the osDesign package and results for endpoints 2 and 3 are obtained using the survey package. The models do not adjust for time from vaccination to birth.  The models adjust for maternal risk score.}
+    \label{tab:CoR_obj2b2}
+\end{table}
+
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{\pathCoRinput/CoR_obj2b2_y1_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b2_y1_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 2}\\
+    \input{\pathCoRinput/CoR_obj2b2_y2_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b2_y2_trt0_pvals}
+
+    \bigskip
+    \textbf{Endpoint 3}\\
+    \input{\pathCoRinput/CoR_obj2b2_y3_trt1_pvals}    
+    \quad
+    \input{\pathCoRinput/CoR_obj2b2_y3_trt0_pvals}
+}
+    \caption{CoR objective 2b2 p-values multiplicity adjustment. Vaccine arm on the left and placebo arm on the right. Each p value is a generalized Wald test p value for the three time points.}
+    \label{tab:CoR_obj2b2_pvals}
+\end{table}
+

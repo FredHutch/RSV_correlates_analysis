@@ -1,0 +1,31 @@
+,Learner,Screen_fromRun,AUC,ci_ll,ci_ul,AUCstr,LearnerScreen,Screen
+1,SL.cforest,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.cforest screen_highcor_random_plus_exposure_All,highcor_random
+2,SL.cforest,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.cforest screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+3,SL.cforest,screen_glmnet_plus_exposure_All,0,0,0,none,SL.cforest screen_glmnet_plus_exposure_All,glmnet
+4,SL.xgboost,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.xgboost screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+5,SL.xgboost,screen_glmnet_plus_exposure_All,0,0,0,none,SL.xgboost screen_glmnet_plus_exposure_All,glmnet
+6,SL.xgboost,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.xgboost screen_highcor_random_plus_exposure_All,highcor_random
+7,SL.bayesglm,screen_glmnet_plus_exposure_All,0,0,0,none,SL.bayesglm screen_glmnet_plus_exposure_All,glmnet
+8,SL.bayesglm,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.bayesglm screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+9,SL.bayesglm,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.bayesglm screen_highcor_random_plus_exposure_All,highcor_random
+10,SL.bayesglm,screen_all_plus_exposure_All,0,0,0,none,SL.bayesglm screen_all_plus_exposure_All,all
+11,SL.glm,screen_glmnet_plus_exposure_All,0,0,0,none,SL.glm screen_glmnet_plus_exposure_All,glmnet
+12,SL.glm,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.glm screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+13,SL.glm,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.glm screen_highcor_random_plus_exposure_All,highcor_random
+14,SL.gam,screen_glmnet_plus_exposure_All,0,0,0,none,SL.gam screen_glmnet_plus_exposure_All,glmnet
+15,SL.gam,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.gam screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+16,SL.gam,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.gam screen_highcor_random_plus_exposure_All,highcor_random
+17,SL.glm,screen_all_plus_exposure_All,0,0,0,none,SL.glm screen_all_plus_exposure_All,all
+18,SL,All,0,0,0,none,SL All,All
+19,Discrete SL,All,0,0,0,none,Discrete SL All,All
+20,SL.glmnet,screen_glmnet_plus_exposure_All,0,0,0,none,SL.glmnet screen_glmnet_plus_exposure_All,glmnet
+21,SL.glmnet,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.glmnet screen_highcor_random_plus_exposure_All,highcor_random
+22,SL.glmnet,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.glmnet screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+23,SL.step,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.step screen_highcor_random_plus_exposure_All,highcor_random
+24,SL.step,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.step screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+25,SL.step,screen_glmnet_plus_exposure_All,0,0,0,none,SL.step screen_glmnet_plus_exposure_All,glmnet
+26,SL.glm.interaction,screen_highcor_random_plus_exposure_All,0,0,0,none,SL.glm.interaction screen_highcor_random_plus_exposure_All,highcor_random
+27,SL.glm.interaction,screen_all_plus_exposure_All,0,0,0,none,SL.glm.interaction screen_all_plus_exposure_All,all
+28,SL.glm.interaction,screen_univariate_logistic_pval_plus_exposure_All,0,0,0,none,SL.glm.interaction screen_univariate_logistic_pval_plus_exposure_All,univar_logistic_pval
+29,SL.glm.interaction,screen_glmnet_plus_exposure_All,0,0,0,none,SL.glm.interaction screen_glmnet_plus_exposure_All,glmnet
+30,SL.mean,screen_all_plus_exposure_All,0,0,0,none,SL.mean screen_all_plus_exposure_All,all

@@ -1,0 +1,929 @@
+The @vanderLaanetal2020 extension of the nonparametric CoR threshold estimation method of @donovan2019 was applied to each D14, fold-rise, and cord blood antibody marker. This extension adjusts for the baseline covariates maternal baseline risk score and the number of days between vaccination and birth using targeted maximum likelihood estimation (TMLE).  Results are reported as plots of point and simultaneous 95\% confidence interval estimates of the risk of RSV endpoint 1 or 2 varying over subgroups of vaccine recipients defined by antibody marker above a given threshold v, and repeating the analysis over all possible thresholds v.  The same analysis was done pooling over vaccine and placebo recipients.
+
+The following subsections show results for the vaccine arm and pooled (vaccine + placebo arm) arms for each of the four antibody markers, as fold-rise, D14 values, and cord blood values, and for endpoint 1 and endpoint 2. For endpoint 1, the results show that risk of RSV disease does not change markedly depending on threshold value of any of the antibody markers. 
+
+For endpoint 2, the results show that for fold rise of EIA and PCA, RSV risk sharply decreased across subgroups defined by increasing thresholds, approaching zero risk at highest thresholds.  There were no RSV disease endpoint 2 cases above a log10 fold-rise of 1.3 for EIA or above log-10 fold-rise of 1.4 for PCA (fold-rises of about 20 and 25, respectively).  Endpoint 2 RSV risk did not change much across subgroups defined by D14 marker thresholds for any of the markers, with possible exception of decreasing risk with the highest D14 RSVA and RSVB thresholds, though the estimated effect is smaller than for the fold-rise EIA and PCA results.  RSV risk decreased with threshold of cord blood response for all four antibody markers, moreso for RSVA and RSVB, especially at highest antibody levels, than for EIA and PCA.  Results were generally similar for the vaccine arm only or combining the vaccine and placebo arms.
+
+In conclusion, the analyses did not support threshold CoPs for endpoint 1, and supported that fold rise EIA, PCA, RSVA, and RSVB all have utility as threshold CoPs for endpoint 2, and may potentially be absolute CoPs.  Moreover, D14 RSVA and D14 RSVB show potential as threshold CoPs.  Yet, the limited number of endpoint 2 cases limit precision about this inference.
+
+
+
+
+### Treatment arm, endpoint 1
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10d14_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+      \label{fig:PLOT_EIA_log10d14_y1_Vaccine_pointwiseCI}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10d14_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10d14overd0_y1_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10d14overd0_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10cord_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10cord_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_PCA_log10d14_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with day 14 PCA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_PCA_log10d14_y1_Vaccine_pointwiseCI.pdf}
+
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_PCA_log10d14_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_PCA_log10d14overd0_y1_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with fold increase in day 14 PCA relative to day 0 PCA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_PCA_log10d14overd0_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_PCA_log10cord_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with PCA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_PCA_log10cord_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVA_log10d14_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with day 14 RSVA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_RSVA_log10d14_y1_Vaccine_pointwiseCI.pdf}
+
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVA_log10d14_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVA_log10d14overd0_y1_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with fold increase in day 14 RSVA relative to day 0 RSVA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVA_log10d14overd0_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVA_log10cord_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with RSVA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVA_log10cord_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVB_log10d14_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with day 14 RSVB greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+      \label{tab:PLOT_RSVB_log10d14_y1_Vaccine_pointwiseCI.pdf}
+
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVB_log10d14_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVB_log10d14overd0_y1_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with fold increase in day 14 RSVB relative to day 0 RSVB above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVB_log10d14overd0_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_RSVB_log10cord_y1_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with RSVB measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+   \label{fig:PLOT_RSVB_log10cord_y1_Vaccine_pointwiseCI}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_RSVB_log10cord_y1_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+
+<!-- ### Simultaneous 95% confidence intervals/bands (Treatment arm, endpoint 1) -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10d14_y1_Vaccine.pdf} -->
+<!--    \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows simultaneous 95\% confidence bands The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10d14_y1_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10d14overd0_y1_Vaccine.pdf} -->
+<!--     \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10d14overd0_y1_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/PLOT_EIA_log10cord_y1_Vaccine.pdf} -->
+<!--    \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshhinput/TABLE_EIA_log10cord_y1_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+### Treatment arm, endpoint 2
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14overd0_y2_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+       \label{fig:PLOT_EIA_log10d14overd0_y2_Vaccine_pointwiseCI}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14overd0_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cord_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10cord_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_PCA_log10d14_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 PCA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_PCA_log10d14_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_PCA_log10d14overd0_y2_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 PCA relative to day 0 PCA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+     \label{fig:PLOT_PCA_log10d14overd0_y2_Vaccine_pointwiseCI}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_PCA_log10d14overd0_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_PCA_log10cord_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with PCA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_PCA_log10cord_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVA_log10d14_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 RSVA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVA_log10d14_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVA_log10d14overd0_y2_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 RSVA relative to day 0 RSVA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVA_log10d14overd0_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVA_log10cord_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with RSVA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVA_log10cord_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVB_log10d14_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 RSVB greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVB_log10d14_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVB_log10d14overd0_y2_Vaccine_pointwiseCI.pdf}
+    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 RSVB relative to day 0 RSVB above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVB_log10d14overd0_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_RSVB_log10cord_y2_Vaccine_pointwiseCI.pdf}
+   \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with RSVB measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_RSVB_log10cord_y2_Vaccine_pointwise.pdf}
+    \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+<!-- ### Simultaneous 95% confidence intervals/bands (Treatment arm, endpoint 2) -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14_y2_Vaccine.pdf} -->
+<!--    \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with day 14 EIA greater than a given threshold. The plot shows simultaneous 95\% confidence bands The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14_y2_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10d14overd0_y2_Vaccine.pdf} -->
+<!--     \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10d14overd0_y2_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/PLOT_EIA_log10cord_y2_Vaccine.pdf} -->
+<!--    \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia for those in vaccine arm with EIA measured in infant cord blood greater than a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=0.7\textwidth]{\pathThreshinput/TABLE_EIA_log10cord_y2_Vaccine_simult.pdf} -->
+<!--     \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+
+
+### Pooled, endpoint 1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10d14_y1_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with day 14 EIA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10d14_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10d14overd0_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10d14overd0_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10cord_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with EIA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10cord_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_PCA_log10d14_y1_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with day 14 PCA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_PCA_log10d14_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_PCA_log10d14overd0_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 PCA relative to day 0 PCA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_PCA_log10d14overd0_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_PCA_log10cord_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with PCA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_PCA_log10cord_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVA_log10d14_y1_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with day 14 RSVA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVA_log10d14_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVA_log10d14overd0_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 RSVA relative to day 0 RSVA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVA_log10d14overd0_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVA_log10cord_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with RSVA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVA_log10cord_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVB_log10d14_y1_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with day 14 RSVB greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVB_log10d14_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVB_log10d14overd0_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 RSVB relative to day 0 RSVB above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVB_log10d14overd0_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_RSVB_log10cord_y1_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with RSVB measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_RSVB_log10cord_y1_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+<!-- ### Simultaneous 95% confidence intervals/bands (Pooled, endpoint 1) -->
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10d14_y1_Pooled.pdf} -->
+<!-- \caption{Marginalized risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with day 14 EIA greater than a given threshold. The plot shows simultaneous 95\% confidence bands The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10d14_y1_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10d14overd0_y1_Pooled.pdf} -->
+<!-- \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10d14overd0_y1_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/PLOT_EIA_log10cord_y1_Pooled.pdf} -->
+<!-- \caption{Conditional risk (>=s) of RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia pooled across the treatment and placebo arms with EIA measured in infant cord blood greater than a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshhpooledinput/TABLE_EIA_log10cord_y1_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+### Pooled, endpoint 2
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10d14_y2_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with day 14 EIA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10d14_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10d14overd0_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10d14overd0_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10cord_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with EIA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10cord_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_PCA_log10d14_y2_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with day 14 PCA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_PCA_log10d14_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_PCA_log10d14overd0_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 PCA relative to day 0 PCA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_PCA_log10d14overd0_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_PCA_log10cord_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with PCA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_PCA_log10cord_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVA_log10d14_y2_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with day 14 RSVA greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVA_log10d14_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVA_log10d14overd0_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 RSVA relative to day 0 RSVA above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVA_log10d14overd0_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVA_log10cord_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with RSVA measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVA_log10cord_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVB_log10d14_y2_Pooled_pointwiseCI.pdf}
+\caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with day 14 RSVB greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVB_log10d14_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVB_log10d14overd0_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 RSVB relative to day 0 RSVB above a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVB_log10d14overd0_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_RSVB_log10cord_y2_Pooled_pointwiseCI.pdf}
+\caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with RSVB measured in infant cord blood greater than a given threshold. The plot shows point-wise 95\% confidence intervals. The dashed red line marks the threshold of zero risk.}
+\label{fig:PLOT_RSVB_log10cord_y2_Pooled_pointwiseCI}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_RSVB_log10cord_y2_Pooled_pointwise.pdf}
+\caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. }
+\end{table}
+
+
+
+
+
+<!-- ### Simultaneous 95% confidence intervals/bands (Pooled, endpoint 2) -->
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10d14_y2_Pooled.pdf} -->
+<!-- \caption{Marginalized risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with day 14 EIA greater than a given threshold. The plot shows simultaneous 95\% confidence bands The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10d14_y2_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10d14overd0_y2_Pooled.pdf} -->
+<!-- \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with fold increase in day 14 EIA relative to day 0 EIA above a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10d14overd0_y2_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->
+
+
+
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/PLOT_EIA_log10cord_y2_Pooled.pdf} -->
+<!-- \caption{Conditional risk (>=s) of RSV-associated lower respiratory tract infection with severe hypoxemia pooled across the treatment and placebo arms with EIA measured in infant cord blood greater than a given threshold. The plot shows simultaneous 95\% confidence bands. The dashed red line marks the threshold of zero risk.} -->
+<!-- \end{figure} -->
+
+
+<!-- \begin{table}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=0.7\textwidth]{\pathThreshpooledinput/TABLE_EIA_log10cord_y2_Pooled_simult.pdf} -->
+<!-- \caption{The table shows the  estimates for the Marginalized risk of RSV disease by threshold. } -->
+<!-- \end{table} -->

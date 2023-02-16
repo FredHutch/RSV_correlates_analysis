@@ -1,0 +1,61 @@
+---
+title: "RSV correlates analysis report"
+shorttitle: "RSV correlates analysis"
+from:
+ - name: Peter Gilbert
+   email: pgilbert@fredhutch.org
+   contact: yes
+ - name: Youyi Fong
+   email: yfong@fredhutch.org
+   contact: yes
+ - name: Wenbo Zhang
+   email: wenboz4@uw.edu
+   contact: yes
+ - name: Bhavesh Borate
+   email: bborate@fredhutch.org
+   contact: yes
+to:
+ - name: Iksung Cho
+ - name: Matthew Lawlor 
+ - name: Lou Fries
+dropcc: false
+cc:
+ - name: Alicia Sato
+ - name: Eva Chung
+ - name: Michelle Chung
+includesummary: false
+summary: 
+  A short summary about your report. 
+lof: true
+lot: true
+toc: true
+header-includes:
+   - \usepackage{natbib}
+   - \usepackage{float}
+   - \usepackage{amsmath}
+   - \usepackage{comment}
+   - \usepackage{subfigure}
+output: 
+  pdf_document
+---
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\newcommand{\pathCoRinput}{input}
+
+\clearpage
+
+
+# Correlates of risk
+
+
+```{r, child=c('CoR_obj1.Rmd')}
+```
+
+```{r, child=c('CoR_obj2.Rmd')}
+```
+
+```{r, child=c('CoR_posthoc.Rmd')}
+```
+
+
+

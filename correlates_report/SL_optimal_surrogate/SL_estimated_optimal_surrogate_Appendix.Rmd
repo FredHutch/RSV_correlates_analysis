@@ -1,0 +1,350 @@
+
+### Endpoint 1
+
+```{r y1-forest-varset-1, fig.cap="\\label{fig:obj3Appendix1}Forest plot showing performance of Superlearner and all individual learners for ``1\\_only\\_matvars'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``1\\_only\\_matvars'' variable set, endpoint 1.", out.width = '85%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_1.png"))
+```
+
+
+```{r y1-forest-varset-2, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``2\\_varset\\_EIA.log10d0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``2\\_varset\\_EIA.log10d0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_2.png"))
+```
+
+
+
+```{r y1-forest-varset-3, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``3\\_varset\\_EIA.log10d14'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``3\\_varset\\_EIA.log10d14'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_3.png"))
+```
+
+
+
+```{r y1-forest-varset-4, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``4\\_varset\\_EIA.log10d14overd0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``4\\_varset\\_EIA.log10d14overd0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_4.png"))
+```
+
+
+
+```{r y1-forest-varset-5, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``5\\_varset\\_EIA.log10cord'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``5\\_varset\\_EIA.log10cord'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_5.png"))
+```
+
+
+
+```{r y1-forest-varset-6, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``6\\_varset\\_PCA.log10d0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``6\\_varset\\_PCA.log10d0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_6.png"))
+```
+
+
+
+```{r y1-forest-varset-7, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``7\\_varset\\_PCA.log10d14'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``7\\_varset\\_PCA.log10d14'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_7.png"))
+```
+
+
+
+```{r y1-forest-varset-8, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``8\\_varset\\_PCA.log10d14overd0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``8\\_varset\\_PCA.log10d14overd0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_8.png"))
+```
+
+
+
+```{r y1-forest-varset-9, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``9\\_varset\\_PCA.log10cord'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``9\\_varset\\_PCA.log10cord'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_9.png"))
+```
+
+
+
+```{r y1-forest-varset-10, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``10\\_varset\\_RSVA.log10d0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``10\\_varset\\_RSVA.log10d0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_10.png"))
+```
+
+
+
+```{r y1-forest-varset-11, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``11\\_varset\\_RSVA.log10d14'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``11\\_varset\\_RSVA.log10d14'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_11.png"))
+```
+
+
+
+```{r y1-forest-varset-12, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``12\\_varset\\_RSVA.log10d14overd0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``12\\_varset\\_RSVA.log10d14overd0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_12.png"))
+```
+
+
+
+```{r y1-forest-varset-13, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``13\\_varset\\_RSVA.log10cord'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``13\\_varset\\_RSVA.log10cord'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_13.png"))
+```
+
+
+
+```{r y1-forest-varset-14, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``14\\_varset\\_RSVB.log10d0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``14\\_varset\\_RSVB.log10d0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_14.png"))
+```
+
+
+
+```{r y1-forest-varset-15, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``15\\_varset\\_RSVB.log10d14'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``15\\_varset\\_RSVB.log10d14'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_15.png"))
+```
+
+
+
+```{r y1-forest-varset-16, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``16\\_varset\\_RSVB.log10d14overd0'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``16\\_varset\\_RSVB.log10d14overd0'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_16.png"))
+```
+
+
+
+```{r y1-forest-varset-17, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``17\\_varset\\_RSVB.log10cord'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``17\\_varset\\_RSVB.log10cord'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_17.png"))
+```
+
+
+
+```{r y1-forest-varset-18, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``18\\_varset\\_d0\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``18\\_varset\\_d0\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_18.png"))
+```
+
+
+
+```{r y1-forest-varset-19, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``19\\_varset\\_d14\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``19\\_varset\\_d14\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_19.png"))
+```
+
+
+
+```{r y1-forest-varset-20, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``20\\_varset\\_d14overd0\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``20\\_varset\\_d14overd0\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_20.png"))
+```
+
+
+
+```{r y1-forest-varset-21, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``21\\_varset\\_cord\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``21\\_varset\\_cord\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_21.png"))
+```
+
+
+
+```{r y1-forest-varset-22, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``22\\_varset\\_EIA\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``22\\_varset\\_EIA\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_22.png"))
+```
+
+
+
+```{r y1-forest-varset-23, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``23\\_varset\\_PCA\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``23\\_varset\\_PCA\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_23.png"))
+```
+
+
+
+```{r y1-forest-varset-24, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``24\\_varset\\_RSVA\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``24\\_varset\\_RSVA\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_24.png"))
+```
+
+
+
+```{r y1-forest-varset-25, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``25\\_varset\\_RSVB\\_all4'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``25\\_varset\\_RSVB\\_all4'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_25.png"))
+```
+
+
+
+```{r y1-forest-varset-26, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``26\\_varset\\_d0\\_d14'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``26\\_varset\\_d0\\_d14'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_26.png"))
+```
+
+
+
+```{r y1-forest-varset-27, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``27\\_varset\\_d0\\_foldrise'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``27\\_varset\\_d0\\_foldrise'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_27.png"))
+```
+
+
+
+```{r y1-forest-varset-28, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``28\\_varset\\_d0\\_cord'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``28\\_varset\\_d0\\_cord'' variable set, endpoint 1.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_28.png"))
+```
+
+
+
+```{r y1-forest-varset-29, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``29\\_varset\\_all16'' variable set and endpoint 1 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``29\\_varset\\_all16'' variable set, endpoint 1.", out.height='85%', out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y1_forest_varset_29.png"))
+```
+
+
+
+### Endpoint 2
+
+```{r y2-forest-varset-1, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``1\\_only\\_matvars'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``1\\_only\\_matvars'' variable set, endpoint 2.", out.height='85%', out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_1.png"))
+```
+
+
+```{r y2-forest-varset-2, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``2\\_varset\\_EIA.log10d0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``2\\_varset\\_EIA.log10d0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_2.png"))
+```
+
+
+
+```{r y2-forest-varset-3, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``3\\_varset\\_EIA.log10d14'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``3\\_varset\\_EIA.log10d14'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_3.png"))
+```
+
+
+
+```{r y2-forest-varset-4, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``4\\_varset\\_EIA.log10d14overd0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``4\\_varset\\_EIA.log10d14overd0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_4.png"))
+```
+
+
+
+```{r y2-forest-varset-5, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``5\\_varset\\_EIA.log10cord'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``5\\_varset\\_EIA.log10cord'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_5.png"))
+```
+
+
+
+```{r y2-forest-varset-6, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``6\\_varset\\_PCA.log10d0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``6\\_varset\\_PCA.log10d0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_6.png"))
+```
+
+
+
+```{r y2-forest-varset-7, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``7\\_varset\\_PCA.log10d14'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``7\\_varset\\_PCA.log10d14'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_7.png"))
+```
+
+
+
+```{r y2-forest-varset-8, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``8\\_varset\\_PCA.log10d14overd0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``8\\_varset\\_PCA.log10d14overd0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_8.png"))
+```
+
+
+
+```{r y2-forest-varset-9, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``9\\_varset\\_PCA.log10cord'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``9\\_varset\\_PCA.log10cord'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_9.png"))
+```
+
+
+
+```{r y2-forest-varset-10, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``10\\_varset\\_RSVA.log10d0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``10\\_varset\\_RSVA.log10d0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_10.png"))
+```
+
+
+
+```{r y2-forest-varset-11, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``11\\_varset\\_RSVA.log10d14'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``11\\_varset\\_RSVA.log10d14'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_11.png"))
+```
+
+
+
+```{r y2-forest-varset-12, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``12\\_varset\\_RSVA.log10d14overd0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``12\\_varset\\_RSVA.log10d14overd0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_12.png"))
+```
+
+
+
+```{r y2-forest-varset-13, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``13\\_varset\\_RSVA.log10cord'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``13\\_varset\\_RSVA.log10cord'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_13.png"))
+```
+
+
+
+```{r y2-forest-varset-14, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``14\\_varset\\_RSVB.log10d0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``14\\_varset\\_RSVB.log10d0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_14.png"))
+```
+
+
+
+```{r y2-forest-varset-15, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``15\\_varset\\_RSVB.log10d14'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``15\\_varset\\_RSVB.log10d14'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_15.png"))
+```
+
+
+
+```{r y2-forest-varset-16, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``16\\_varset\\_RSVB.log10d14overd0'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``16\\_varset\\_RSVB.log10d14overd0'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_16.png"))
+```
+
+
+
+```{r y2-forest-varset-17, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``17\\_varset\\_RSVB.log10cord'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``17\\_varset\\_RSVB.log10cord'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_17.png"))
+```
+
+
+
+```{r y2-forest-varset-18, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``18\\_varset\\_d0\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``18\\_varset\\_d0\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_18.png"))
+```
+
+
+
+```{r y2-forest-varset-19, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``19\\_varset\\_d14\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``19\\_varset\\_d14\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_19.png"))
+```
+
+
+
+```{r y2-forest-varset-20, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``20\\_varset\\_d14overd0\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``20\\_varset\\_d14overd0\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_20.png"))
+```
+
+
+
+```{r y2-forest-varset-21, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``21\\_varset\\_cord\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``21\\_varset\\_cord\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_21.png"))
+```
+
+
+
+```{r y2-forest-varset-22, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``22\\_varset\\_EIA\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``22\\_varset\\_EIA\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_22.png"))
+```
+
+
+
+```{r y2-forest-varset-23, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``23\\_varset\\_PCA\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``23\\_varset\\_PCA\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_23.png"))
+```
+
+
+
+```{r y2-forest-varset-24, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``24\\_varset\\_RSVA\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``24\\_varset\\_RSVA\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_24.png"))
+```
+
+
+
+```{r y2-forest-varset-25, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``25\\_varset\\_RSVB\\_all4'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``25\\_varset\\_RSVB\\_all4'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_25.png"))
+```
+
+
+
+```{r y2-forest-varset-26, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``26\\_varset\\_d0\\_d14'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``26\\_varset\\_d0\\_d14'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_26.png"))
+```
+
+
+
+```{r y2-forest-varset-27, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``27\\_varset\\_d0\\_foldrise'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``27\\_varset\\_d0\\_foldrise'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_27.png"))
+```
+
+
+
+```{r y2-forest-varset-28, fig.cap="Forest plot showing performance of Superlearner and all individual learners for ``28\\_varset\\_d0\\_cord'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``28\\_varset\\_d0\\_cord'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_28.png"))
+```
+
+
+
+```{r y2-forest-varset-29, fig.cap="\\label{fig:obj3Appendix2}Forest plot showing performance of Superlearner and all individual learners for ``29\\_varset\\_all16'' variable set and endpoint 2 as outcome. Plot shows CV-AUC point estimates and 95\\% confidence intervals from analyses carried out on Phase 2 data with constraint k=6 and separately on vaccine and placebo groups. Learners are sorted by the CV-AUC point estimates for the vaccine group.", fig.scap="Forest plot for ``29\\_varset\\_all16'' variable set, endpoint 2.", out.width = '100%'}
+knitr::include_graphics(paste0(here(), "/correlates_report/objective3/input/y2_forest_varset_29.png"))
+```
+
+

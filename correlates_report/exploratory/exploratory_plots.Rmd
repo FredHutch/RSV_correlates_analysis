@@ -1,0 +1,150 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Comparion between time points
+
+In the vaccine arm there is a drop from d14 to cord blood for all four markers. 
+In the placebo arm there is a small drop from d14 to cord blood in RSVA, but this is not observed for RSVB, EIA, or PCA. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/boxplot_rsv_by_time_trt.png}
+    \caption{Boxplots of RSVA and RSVB}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/boxplot_eia_pca_by_time_trt.png}
+    \caption{Boxplots of EIA and PCA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/boxplot_overd0_eia_pca.pdf}
+    \caption{Boxplots of EIA and PCA, fold change markers}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/boxplot_overd0_rsv.pdf}
+    \caption{Boxplots of RSVA and RSVB, fold change markers}
+\end{figure}
+
+
+
+\clearpage
+## Correlations between assays
+
+The correlations between EIA and PCA are high (around 0.9), especially in the vaccine arm at the D14 and cord blood time points. The correlations between RSVA and other assays and the correlations between RSVB and other assays are moderate (around 0.5); therefore, according to the SAP we advance both markers to the correlates analyses.
+
+
+\begin{table}[H]
+    \centering
+    \input{\pathCoRinput/spearcor_assays}
+    \caption{Average of Spearman correlation coefficients between assays at different times and in different treatment arms.}
+\end{table}
+
+
+
+A potential explanation for the relatively low correlations between RSVA and other assays and between RSVB and other assays is that neutralization assays involve three proteins, F, G, and another protein. Only F protein is in the vaccine. The difference in F protein between RSVA and RSVB assay is not very big, but the G proteins between the two assays may be quite different. The G protein may also drive a large portion of the neutralization responses. On the other hand, EIA and PCA are both F-protein focused. 
+
+Much of the titer data are not as discrete as the RSVA and RSVB data. EIA is based on titer data (although the documentation from Novavax is ambiguous on this, in some places it says the readout is OD), if all it takes is to fit 4PL and smooth it out, that should be easy to do.
+There were no replicates for RSVA and RSVB markers, which made it hard to assess assay variability and we are left wondering whether the relatively poor performance of RSVA and RSVB is due to assay variability or to other explanations such as the one Lou discussed: F protein in the vaccine may not be the dominant factor for this assay. Understandably the lack of replicates is due to cost, but the lab should have some data on the assay variability from their quality control process.
+The correlation between D0 and D14 in the placebo arm provides an estimate of the measurement error. The correlation is high, around 0.9, for RSVB, EIA, and PCA, but lower, around 0.7, for RSVA. 
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_rsva_rsvb.pdf}
+    \caption{Scatterplots between RSV A and B by treatment and time. Spearman correlation coefficients are shown in the titles.}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_eia_pca.pdf}
+    \caption{Scatterplots between EIA and PCA by treatment and time. Spearman correlation coefficients are shown in the titles.}
+    \label{fig:scatterplot_eia_pca}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_rsva_eia.pdf}
+    \caption{Scatterplots between RSV A and EIA by treatment and time. Spearman correlation coefficients are shown in the titles.}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_rsva_pca.pdf}
+    \caption{Scatterplots between RSV A and PCA by treatment and time. Spearman correlation coefficients are shown in the titles.}
+\end{figure}
+
+
+
+\clearpage
+## Correlations between time points
+
+In this subsection we examine correlations between assay measurements at different time points. 
+
+\begin{table}[H]
+    \centering
+    \input{\pathCoRinput/spearcor_time_d14}
+    \caption{Spearman correlation coefficients between D0 and D14.}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \input{\pathCoRinput/spearcor_time_foldchange}
+    \caption{Spearman correlation coefficients between D0 and fold-change (D14 over D0)}
+\end{table}
+
+\clearpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_RSVA.pdf}
+    \caption{RSV A. Spearman correlation coefficients are shown in the titles.}
+    \label{fig:scatterplot_RSVA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_RSVB.pdf}
+    \caption{RSV B. Spearman correlation coefficients are shown in the titles.}
+    \label{fig:scatterplot_RSVB}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_EIA.pdf}
+    \caption{EIA. Spearman correlation coefficients are shown in the titles.}
+    \label{fig:scatterplot_EIA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_PCA.pdf}
+    \caption{PCA. Spearman correlation coefficients are shown in the titles.}
+    \label{fig:scatterplot_PCA}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_rsvAB_d14_foldchange}
+    \caption{RSVA and RSVB.}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{\pathCoRinput/scatterplot_EIApca_d14_foldchange}
+    \label{fig:scatterplot_EIApca_d14_foldchange}
+    \caption{EIA and PCA. The top 4 data points in EIA placebo arm are best in both D14 values and fold change. If these are new infections, then the attack rate is about 1.5\% annually, which is within range. }
+\end{figure}
+
+
+
+
+\clearpage

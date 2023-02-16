@@ -1,0 +1,397 @@
+
+
+### Forest plots for maternal enrollment variable set for all k parameters not selected to derive the risk score
+
+<!-- Endpoint 1 -->
+
+<!-- ```{r SL-fits-mat1-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=1 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=1 and endpoint 1.", fig.width=8} -->
+<!-- # pdf("../graph/meanAUC.meantiter.versus.p24.pdf", width=5, height=5) -->
+
+<!-- top_learner <- maternal_endpoint1 %>% -->
+<!--   filter(k==1) %>% -->
+<!--   make_forest_plot() -->
+
+<!-- grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2) -->
+
+<!-- ``` -->
+
+
+```{r SL-fits-mat2-y1, fig.cap="\\label{fig:riskscoreAppendix1}Risk score analysis for maternal enrollment variables with k=2 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=2 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==2) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat3-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=3 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=3 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==3) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat4-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=4 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=4 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==4) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+```
+
+
+```{r SL-fits-mat5-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=5 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=5 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==5) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat6-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=6 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=6 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==6) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat7-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=7 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=7 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==7) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat8-y1, fig.cap="Risk score analysis for maternal enrollment variables with k=8 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=8 and endpoint 1.", fig.width=8}
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==8) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+`r visc_clearpage()`
+
+<!-- # Endpoint 2 -->
+
+
+```{r SL-fits-mat1-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=1 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=1 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==1) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+<!-- ```{r SL-fits-mat2-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=2 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=2 and endpoint 2.", fig.width=8} -->
+
+<!-- top_learner <- maternal_endpoint2 %>% -->
+<!--   filter(k==2) %>% -->
+<!--   make_forest_plot() -->
+
+<!-- grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2) -->
+
+<!-- ``` -->
+
+
+```{r SL-fits-mat3-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=3 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=3 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==3) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+```{r SL-fits-mat4-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=4 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=4 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==4) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat5-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=5 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=5 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==5) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-mat6-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=6 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=6 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==6) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat7-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=7 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=7 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==7) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-mat8-y2, fig.cap="Risk score analysis for maternal enrollment variables with k=8 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=8 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==8) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+`r visc_clearpage()`
+
+### Forest plots for birth/delivery variable set for all k parameters not selected to derive the risk score
+
+<!-- # Endpoint 1 -->
+
+
+<!-- ```{r SL-fits-birth1-y1, fig.cap="Risk score analysis of birth variables with k=1 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=1 and endpoint 1.", fig.width=8} -->
+
+
+<!-- top_learner <- pediatric_endpoint1 %>% -->
+<!--   filter(k==1) %>% -->
+<!--   make_forest_plot() -->
+
+<!-- grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2) -->
+
+<!-- ``` -->
+
+
+```{r SL-fits-birth2-y1, fig.cap="Risk score analysis of birth variables with k=2 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=2 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==2) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-birth3-y1, fig.cap="Risk score analysis of birth variables with k=3 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=3 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==3) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-birth4-y1, fig.cap="Risk score analysis of birth variables with k=4 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=4 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==4) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+```{r SL-fits-birth5-y1, fig.cap="Risk score analysis of birth variables with k=5 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=5 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==5) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-birth6-y1, fig.cap="Risk score analysis of birth variables with k=6 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=6 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==6) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+```{r SL-fits-birth7-y1, fig.cap="Risk score analysis of birth variables with k=7 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=7 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==7) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+```{r SL-fits-birth8-y1, fig.cap="Risk score analysis of birth variables with k=8 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=8 and endpoint 1.", fig.width=8}
+
+top_learner <- pediatric_endpoint1 %>%
+  filter(k==8) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+`r visc_clearpage()`
+
+<!-- # Endpoint 2 -->
+
+
+
+```{r SL-fits-birth1-y2, fig.cap="Risk score analysis of birth variables with k=1 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=1 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==1) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-birth2-y2, fig.cap="Risk score analysis of birth variables with k=2 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=2 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==2) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+<!-- ```{r SL-fits-birth3-y2, fig.cap="Risk score analysis of birth variables with k=3 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=3 and endpoint 2.", fig.width=8} -->
+
+<!-- top_learner <- pediatric_endpoint2 %>% -->
+<!--   filter(k==3) %>% -->
+<!--   make_forest_plot() -->
+
+<!-- grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2) -->
+
+<!-- ``` -->
+
+
+
+
+```{r SL-fits-birth4-y2, fig.cap="Risk score analysis of birth variables with k=4 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=4 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==4) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+```{r SL-fits-birth5-y2, fig.cap="Risk score analysis of birth variables with k=5 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=5 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==5) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+```{r SL-fits-birth6-y2, fig.cap="Risk score analysis of birth variables with k=6 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=6 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==6) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+```{r SL-fits-birth7-y2, fig.cap="Risk score analysis of birth variables with k=7 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=7 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==7) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+
+
+
+```{r SL-fits-birth8-y2, fig.cap="\\label{fig:riskscoreAppendix2}Risk score analysis of birth variables with k=8 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis of birth variables with k=8 and endpoint 2.", fig.width=8}
+
+top_learner <- pediatric_endpoint2 %>%
+  filter(k==8) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```

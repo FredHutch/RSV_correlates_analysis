@@ -1,0 +1,49 @@
+## Baseline correlates of VE
+
+
+There was no evidence of baseline marker correlates of VE as shown in the following tables.
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{CoP_Youyi/input/CoVE_baseline_y1}\\
+    
+    \textbf{Endpoint 2}\\
+    \input{CoP_Youyi/input/CoVE_baseline_y2}\\
+    
+    \textbf{Endpoint 3}\\
+    \input{CoP_Youyi/input/CoVE_baseline_y3}\\
+    
+    % it is important to have this empty line above for formatting
+}
+    \caption{Baseline CoVE. Ratios of ORs corresponding to the interaction term between treatment and antibody marker are shown. Each cell corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data.
+   The models adjust for maternal risk score and time from vaccination to birth.
+     }
+    \label{tab:CoVE_baseline}
+\end{table}
+
+
+
+\begin{table}[H]
+\scriptsize{
+    \textbf{Endpoint 1}\\
+    \input{CoP_Youyi/input/CoVE_baseline_4_y1}\\
+    
+    \textbf{Endpoint 2}\\
+    \input{CoP_Youyi/input/CoVE_baseline_4_y2}\\
+    
+    \textbf{Endpoint 3}\\
+    \input{CoP_Youyi/input/CoVE_baseline_4_y3}\\
+    
+    % it is important to have this empty line above for formatting
+}
+    \caption{Baseline CoVE. Ratios of ORs corresponding to the interaction term between treatment and marker are shown. Each cell corresponds to one model. All models include all four baseline markers and are fitted to phase 2 data.
+    The models adjust for maternal risk score and time from vaccination to birth.
+     }
+    \label{tab:CoVE_baseline_4}
+\end{table}
+
+
+
+\clearpage
+

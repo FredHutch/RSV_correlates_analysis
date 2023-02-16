@@ -1,0 +1,474 @@
+
+`r visc_clearpage()`
+
+## Superlearner regression for Calculating the Estimated Optimal Surrogate
+
+Superlearner models were fit on Phase 2 data for each endpoint (1 and 2), treatment arm and each of the 29 variable sets (Table `r visc_ref("tab:varsets")`). All models were fit with k=6 as the constraint such that there were at most 6 covariates in the model, except when a quantitative fold-rise marker was a covariate included in the variable set and passed the screen, in which case the indicator of both a 2-fold and 4-fold rise were included along. The 2-fold and 4-fold rise indicator variables were not part of the variable screening process. 
+
+The learners were implemented with the same empirical inverse probability weights that were used in Objectives 1 and 2 to account for the two-phase sampling design. Implementation of the weighted CV-AUC estimation was done using the R package vimp available on CRAN.
+
+Other details regarding the Superlearner were as mentioned in the risk score analysis.
+<!-- Briefly, each input variable (binary, count, and continuous variables) was pre-scaled to have mean 0 and standard deviation 1 in the treatment arm under study. Leave-one-out cross-validation and negative log-likelihood loss were used as inputs to the Superlearner as they have shown to perform well in small sample size settings.  -->
+
+<!-- The superlearner ensemble model was based on input from 28 learner-screen combinations shown in Table 2.1. Note that except for the highcor_random screen, variables passing the screens are further ranked by univariate p-value and the highest ranking variables are selected based on k. Variables passing the highcor_random screen, in contrast, are selected at random.  -->
+
+<!-- Most of the learners used were non-data-adaptive and included glm, glm.interaction, bayesglm, step, lasso (glmnet) and gam. Two data-adaptive learners were also used and included cForest and xgboost. -->
+
+<!-- Two levels of cross-validation (CV) are used in the generation of the superlearner ensemble model: -->
+
+<!-- 1. Outer level: CV-AUC is computed over 5-fold CV and used to estimate performance of the ensemble. This is repeated 10 times to improve stability. Note that once the screens are set up, the selected covariates remain constant for the superlearner job (over the 5 outer folds). The variability in the 10 random seeds is generated in the way superlearner splits up the data into the 5 outer folds.  -->
+
+<!-- 2. Inner level: leave-one-out CV used to estimate individual learner performance and ensemble weights.  -->
+
+<!-- The superlearner was conducted averaging over 10 random seeds, to make results less dependent on random number generator seed. -->
+
+Tables `r visc_ref("tab:SLperformance-vacc-y1")` (endpoint 1 and vaccine group), `r visc_ref("tab:SLperformance-plac-y1")` (endpoint 1 and placebo group), `r visc_ref("tab:SLperformance-vacc-y2")` (endpoint 2 and vaccine group) and `r visc_ref("tab:SLperformance-plac-y2")` (endpoint 2 and placebo group) show the performance (CV-AUC with 95% CI) of the superlearner models along with performance of the top-performing individual learner in each of the 29 variable sets.
+
+Figures `r visc_ref("fig:forest_y1_vaccine_chosenvarset")`  (endpoint 1 and vaccine group), `r visc_ref("fig:forest_y1_placebo_chosenvarset")` (endpoint 1 and placebo group), `r visc_ref("fig:forest_y2_vaccine_chosenvarset")` (endpoint 2 and vaccine group) and `r visc_ref("fig:forest_y2_placebo_chosenvarset")` (endpoint 2 and placebo group) show the forest plots of all learners in the selected variable set.
+
+Figures `r visc_ref("fig:predProb_y1_vacc_chosenvarset")`  (endpoint 1 and vaccine group), `r visc_ref("fig:predProb_y1_plac_chosenvarset")` (endpoint 1 and placebo group), `r visc_ref("fig:predProb_y2_vacc_chosenvarset")` (endpoint 2 and vaccine group) and `r visc_ref("fig:predProb_y2_plac_chosenvarset")` (endpoint 2 and placebo group) display the CV estimated predicted probability of outcome for each participant for the top two best-performing learners along with the Superlearner and the Discrete SL.
+
+Tables `r visc_ref("tab:y1vacc8varsetPCAlogd14overd0wts")` and `r visc_ref("tab:y1vacc8varsetPCAlogd14overd0learner")` show details for the Superlearner model selected based on CV-AUC of 0.871 (95% CI: 0.731, 0.938) for endpoint 1 and vaccine group.
+
+Tables `r visc_ref("tab:y1plac4varsetEIAlogd14overd0wts")` and `r visc_ref("tab:y1plac4varsetEIAlogd14overd0learner")` show details for the Superlearner model selected based on CV-AUC of 0.890 (95% CI: 0.604, 0.968) for endpoint 1 and placebo group.
+
+Table `r visc_ref("tab:coefy2vacc4varsetEIAlogd14overd0")` shows details for the GLM model selected based on CV-AUC of 0.815 (95% CI: 0.679, 0.898) for endpoint 2 and vaccine group.
+
+Table `r visc_ref("tab:coefy2plac23varsetPCAall4")` shows details for the Bayes.GLM model selected based on CV-AUC of 0.821 (95% CI: 0.645, 0.918) for endpoint 2 and placebo group.
+
+Forest plots showing performance of Superlearner and all individual learners for all 29 variable sets and both endpoints are shown in the Appendix section (Figures \ref{fig:obj3Appendix1} - \ref{fig:obj3Appendix2}). 
+
+
+<!-- `r visc_clearpage()` -->
+
+<!-- ```{r learner-screens2, warning=kable_warnings} -->
+<!-- caption <- "All learner-screen combinations (28 in total) used as input to the superlearner." -->
+
+<!-- read.csv("input/learner-screens.csv", row.names = 1, header = TRUE) %>% -->
+<!--     rename(`Screen*` = `Screen.`) %>% -->
+<!--   kable( -->
+<!--     format = output_type, -->
+<!--     booktabs = TRUE, -->
+<!--     linesep = "", -->
+<!--     caption = caption -->
+<!--   ) %>% -->
+<!--   kable_styling(latex_options = c("hold_position"), -->
+<!--                 font_size = 9) %>% -->
+<!--   column_spec(1:2, width = "5cm") %>% -->
+<!--   row_spec(0,bold=TRUE) %>% -->
+<!--   collapse_rows(columns = 1, valign = "top", latex_hline = "major") %>% -->
+<!--   footnote(c("*Screen details:", -->
+<!--              "all: includes all variables", -->
+<!--              "glmnet: includes variables with non-zero coefficients in the standard implementation of SL.glmnet that optimizes the lasso tuning parameter via cross-validation", -->
+<!--              "univar_logistic_pval: Wald test 2-sided p-value in a logistic regression model < 0.10", -->
+<!--              "highcor_random: if pairs of quantitative variables with Spearman rank correlation > 0.90, select one of the variables at random"), -->
+<!--            threeparttable = TRUE) -->
+
+<!-- ``` -->
+
+
+`r visc_clearpage()`
+
+```{r varsets, warning=kable_warnings}
+caption <- "The 29 variable sets on which an estimated optimal surrogate was built."
+
+read.csv("input/varsets.csv", row.names = 1, header = TRUE) %>%
+    rename(`Variable Set Name` = `Variable.Set.Name`,
+           `Variables included in the set` = `Variables.included.in.the.set`) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 9) %>%
+  column_spec(2, width = "15cm") %>%
+  row_spec(0,bold=TRUE) %>%
+  footnote(c("If the quantitative fold-rise marker passed the screen, it was included with both a 2-fold and 4-fold rise indicator.",
+             "The 2-fold and 4-fold rise indicator variables were not part of the variable screening process."),
+           threeparttable = TRUE)
+
+```
+
+
+
+
+`r visc_clearpage()`
+
+
+### Endpoint 1, Vaccine group
+
+```{r SLperformance-vacc-y1, warning=kable_warnings}
+caption <- "Performance of Superlearner and the top-performing learner-screen combinations (CV-AUCs with 95\\% CIs) for each of the 29 variable sets in the vaccine group with endpoint 1 as outcome. Constraint of k=6 is applied to all learners."
+
+read.csv("input/SLperformance-vacc-y1.csv", row.names = 1) %>%
+    rename(`Variable Set` = `Variable.set`,
+           `SL CV-AUC (95% CI)` = `SL.CV.AUC..95..CI.`,
+           `CV-AUC (95% CI)` = `CV.AUC..95..CI.`) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 8)  %>%
+  footnote(c("*Top-performing Superlearner and individual learner models are highlighted with an asterisk."),
+           threeparttable = TRUE)
+
+```
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/forest_y1_vaccine_8th_varset}
+    \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 8th variable set trained to classify RSV cases defined by endpoint 1 in vaccine group. Learners are sorted by their CV-AUC point estimates.}
+    \label{fig:forest_y1_vaccine_chosenvarset}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/predProb_y1_vacc_8_varset_PCA.log10d14overd0}
+    \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls based off endpoint 1 for the top 2 learners, SuperLearner and Discrete SL in the 8th variable set of the vaccine group.}
+    \label{fig:predProb_y1_vacc_chosenvarset}
+    \end{figure}
+
+
+```{r y1vacc8varsetPCAlogd14overd0wts, warning=kable_warnings}
+caption <- "Weights in the top-performing SuperLearner model (8th variable set) for the vaccine group with endpoint 1 as the outcome."
+
+read.csv("input/y1_vaccine_8_varset_PCA.log10d14overd0_weights.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10)
+
+```
+
+
+```{r y1vacc8varsetPCAlogd14overd0learner, warning=kable_warnings}
+caption <- "Coefficients in the learner (screen\\_univariate\\_logistic\\_pval\\_SL.step\\_All) assigned the highest weight by the SuperLearner in the vaccine group with endpoint 1 as the outcome."
+
+read.csv("input/y1_vaccine_8_varset_PCA.log10d14overd0_learner.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10) 
+
+# %>%
+#   footnote(c("Holding `season' at a fixed value, we expect to see a 74% decrease in the odds of acquiring RSV disease (as defined by endpoint 1) with a one unit increase in age at treatment.", 
+#              "Holding `age at treatment' at a fixed value, we expect to see 253% increase in the odds of acquiring RSV disease (as defined by endpoint 1) with a one-unit increase in the season."),
+#            threeparttable = TRUE,
+#            general_title = "Model Interpretation: ")
+
+```
+
+
+
+
+`r visc_clearpage()`
+
+### Endpoint 1, Placebo group
+
+```{r SLperformance-plac-y1, warning=kable_warnings}
+caption <- "Performance of Superlearner and the top-performing learner-screen combinations (CV-AUCs with 95\\% CIs) for each of the 29 variable sets in the placebo group with endpoint 1 as outcome. Constraint of k=6 is applied to all learners."
+
+read.csv("input/SLperformance-plac-y1.csv", row.names = 1) %>%
+    rename(`Variable Set` = `Variable.set`,
+           `SL CV-AUC (95% CI)` = `SL.CV.AUC..95..CI.`,
+           `CV-AUC (95% CI)` = `CV.AUC..95..CI.`) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 8)  %>%
+  footnote(c("*Top-performing Superlearner and individual learner models are highlighted with an asterisk."),
+           threeparttable = TRUE)
+
+```
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/forest_y1_placebo_4th_varset}
+    \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 4th variable set trained to classify RSV cases defined by endpoint 1 in placebo group. Learners are sorted by their CV-AUC point estimates.}
+    \label{fig:forest_y1_placebo_chosenvarset}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/predProb_y1_plac_4_varset_EIA.log10d14overd0}
+    \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls based off endpoint 1 for the top 2 learners, SuperLearner and Discrete SL in the 4th variable set of the placebo group.}
+    \label{fig:predProb_y1_plac_chosenvarset}
+    \end{figure}
+
+
+
+```{r y1plac4varsetEIAlogd14overd0wts, warning=kable_warnings}
+caption <- "Weights in the top-performing SuperLearner model (4th variable set) for the placebo group with endpoint 1 as the outcome."
+
+read.csv("input/y1_placebo_4_varset_EIA.log10d14overd0_weights.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10)
+
+```
+
+
+```{r y1plac4varsetEIAlogd14overd0learner, warning=kable_warnings}
+caption <- "Coefficients in the learner (screen\\_univariate\\_logistic\\_pval\\_SL.step\\_All) assigned the highest weight by the SuperLearner in the placebo group with endpoint 1 as the outcome."
+
+read.csv("input/y1_placebo_4_varset_EIA.log10d14overd0_learner.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10) 
+
+```
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/forest_vaccine_4th_varset} -->
+<!--     \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 4th variable set trained to classify RSV cases in vaccine group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.} -->
+<!--     \label{fig:forest_vaccine_4th_varset} -->
+<!--     \end{figure} -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/predProb_y2_vacc_4_varset_EIA.log10d14overd0} -->
+<!--     \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls for the top 2 learner-screen combinations along with SuperLearner and Discrete SL for the 4th variable set in the vaccine group.} -->
+<!--     \label{fig:predProb_y2_vacc_4_varset_EIA.log10d14overd0} -->
+<!--     \end{figure} -->
+
+
+
+
+<!-- ```{r coef_y2_vaccine_4_varset_EIA.log10d14overd0, warning=kable_warnings} -->
+<!-- caption <- "Coefficients in the top-performing learner-screen model (SL.glm\\_all) in the 4th variable set for the vaccine group with endpoint 2 as the outcome." -->
+
+<!-- read.csv("input/coef_y2_vaccine_4_varset_EIA.log10d14overd0.csv", row.names = 1) %>% -->
+<!--   kable( -->
+<!--     format = output_type, -->
+<!--     booktabs = TRUE, -->
+<!--     linesep = "", -->
+<!--     caption = caption -->
+<!--   ) %>% -->
+<!--   kable_styling(latex_options = c("hold_position"), -->
+<!--                 font_size = 10) -->
+
+<!-- ``` -->
+
+`r visc_clearpage()`
+
+### Endpoint 2, Vaccine group
+
+```{r SLperformance-vacc-y2, warning=kable_warnings}
+caption <- "Performance of Superlearner and the top-performing learner-screen combinations (CV-AUCs with 95\\% CIs) for each of the 29 variable sets in the vaccine group with endpoint 2 as outcome. Constraint of k=6 is applied to all learners."
+
+read.csv("input/SLperformance-vacc-y2.csv", row.names = 1) %>%
+    rename(`Variable Set` = `Variable.set`,
+           `SL CV-AUC (95% CI)` = `SL.CV.AUC..95..CI.`,
+           `CV-AUC (95% CI)` = `CV.AUC..95..CI.`) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 8)  %>%
+  footnote(c("*Top-performing Superlearner and individual learner models are highlighted with an asterisk."),
+           threeparttable = TRUE)
+
+```
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/forest_y2_vaccine_4th_varset}
+    \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 4th variable set trained to classify RSV cases defined by endpoint 2 in vaccine group. Learners are sorted by their CV-AUC point estimates.}
+    \label{fig:forest_y2_vaccine_chosenvarset}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/predProb_y2_vacc_4_varset_EIA.log10d14overd0}
+    \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls based off endpoint 2 for the top 2 learners, SuperLearner and Discrete SL in the 4th variable set of the vaccine group.}
+    \label{fig:predProb_y2_vacc_chosenvarset}
+    \end{figure}
+
+
+
+
+```{r coefy2vacc4varsetEIAlogd14overd0, warning=kable_warnings}
+caption <- "Coefficients in the top-performing learner-screen model (SL.glm\\_all) in the 4th variable set for the vaccine group with endpoint 2 as the outcome."
+
+read.csv("input/coef_y2_vaccine_4_varset_EIA.log10d14overd0.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10) 
+
+```
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/forest_vaccine_22nd_varset} -->
+<!--     \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 22nd variable set trained to classify RSV cases in vaccine group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.} -->
+<!--     \label{fig:forest_vaccine_22nd_varset} -->
+<!--     \end{figure} -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/predProb_y2_vacc_22_varset_EIA_all4} -->
+<!--     \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls for the top 2 learner-screen combinations along with SuperLearner and Discrete SL for the 22nd variable set in the vaccine group.} -->
+<!--     \label{fig:predProb_y2_vacc_22_varset_EIA_all4} -->
+<!--     \end{figure} -->
+
+
+
+<!-- ```{r coef_y2_vaccine_22_varset_EIA_all4, warning=kable_warnings} -->
+<!-- caption <- "Coefficients in the top-performing learner-screen model (SL.glm\\_all) in the 22nd variable set for the vaccine group with endpoint 2 as the outcome." -->
+
+<!-- read.csv("input/coef_y2_vaccine_22_varset_EIA_all4.csv", row.names = 1) %>% -->
+<!--   kable( -->
+<!--     format = output_type, -->
+<!--     booktabs = TRUE, -->
+<!--     linesep = "", -->
+<!--     caption = caption -->
+<!--   ) %>% -->
+<!--   kable_styling(latex_options = c("hold_position"), -->
+<!--                 font_size = 10) -->
+
+<!-- ``` -->
+
+
+`r visc_clearpage()`
+
+### Endpoint 2, Placebo group
+
+```{r SLperformance-plac-y2, warning=kable_warnings}
+caption <- "Performance of Superlearner and the top-performing learner-screen combinations (CV-AUCs with 95\\% CIs) for each of the 29 variable sets in the placebo group with endpoint 2 as outcome. Constraint of k=6 is applied to all learners."
+
+read.csv("input/SLperformance-plac-y2.csv", row.names = 1) %>%
+    rename(`Variable Set` = `Variable.set`,
+           `SL CV-AUC (95% CI)` = `SL.CV.AUC..95..CI.`,
+           `CV-AUC (95% CI)` = `CV.AUC..95..CI.`) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 8)  %>%
+  footnote(c("*Top-performing Superlearner and individual learner models are highlighted with an asterisk."),
+           threeparttable = TRUE)
+
+```
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/forest_y2_placebo_23rd_varset}
+    \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 23rd variable set trained to classify RSV cases defined by endpoint 2 in placebo group. Learners are sorted by their CV-AUC point estimates.}
+    \label{fig:forest_y2_placebo_chosenvarset}
+    \end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{objective3/input/predProb_y2_plac_23_varset_PCA_all4}
+    \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls based off endpoint 2 for the top 2 learners, SuperLearner and Discrete SL in the 23rd variable set of the placebo group.}
+    \label{fig:predProb_y2_plac_chosenvarset}
+    \end{figure}
+
+
+```{r coefy2plac23varsetPCAall4, warning=kable_warnings}
+caption <- "Coefficients in the top-performing learner-screen model (SL.bayesglm\\_glmnet) in the 23rd variable set for the placebo group with endpoint 2 as the outcome."
+
+read.csv("input/coef_y2_placebo_23_varset_PCA_all4.csv", row.names = 1) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 10) 
+
+```
+
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/forest_placebo_8th_varset} -->
+<!--     \caption{Forest Plot showing CV-AUC point estimates and 95\% confidence intervals for the Super Learner and all models in the 8th variable set trained to classify RSV cases in placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.} -->
+<!--     \label{fig:forest_placebo_8th_varset} -->
+<!--     \end{figure} -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=1\textwidth]{objective3/input/predProb_y2_plac_8_varset_PCA.log10d14overd0} -->
+<!--     \caption{Plots showing CV estimated probabilities of RSV disease split by cases and controls for the top 2 learner-screen combinations along with SuperLearner and Discrete SL for the 8th variable set in the placebo group.} -->
+<!--     \label{fig:predProb_y2_plac_8_varset_PCA.log10d14overd0} -->
+<!--     \end{figure} -->
+
+
+
+<!-- ```{r coef_y2_placebo_8_varset_PCA.log10d14overd0, warning=kable_warnings} -->
+<!-- caption <- "Coefficients in the top-performing learner-screen model (SL.glmnet\\_glmnet) in the 8th variable set for the placebo group with endpoint 2 as the outcome." -->
+
+<!-- read.csv("input/coef_y2_placebo_8_varset_PCA.log10d14overd0.csv", row.names = 1) %>% -->
+<!--   kable( -->
+<!--     format = output_type, -->
+<!--     booktabs = TRUE, -->
+<!--     linesep = "", -->
+<!--     caption = caption -->
+<!--   ) %>% -->
+<!--   kable_styling(latex_options = c("hold_position"), -->
+<!--                 font_size = 10)   -->
+
+<!-- ``` -->
+
+
+
+
+

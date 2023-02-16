@@ -1,0 +1,86 @@
+
+## Approach to assessing immune correlates of risk and protection
+
+The immune correlates analyses were restricted to South African study sites and follow-up period of infants through to 90 days of age.
+Correlates for each of three nested RSV disease endpoints in the expanded data set were assessed:
+(1) Either RSV LRTI MS, RSV LRTI with hospitalization, or RSV LRTI with severe hypoxemia (52 vaccine and 51 placebo endpoints);
+(2) RSV LRTI with severe hypoxemia (14 vaccine and 27 placebo endpoints); and
+(3) RSV LRTI with severe hypoxemia without cough (12 vaccine and 26 placebo endpoints).  We focus on results for endpoints 1 and 2 given that endpoint 3 was similar to endpoint 2.  All analyses were pre-specified in the SAP except one post-hoc analysis that is noted as post-hoc.
+
+Sixteen antibody markers were included in the correlates analyses, as defined by the four assays EIA, PCA, RSVA, RSVB cross-classified by measurement time point and whether fold rise was considered (maternal vaccination sample D0; maternal post vaccination sample D14; maternal fold-rise from D0 to D14; cord blood). 
+ EIA and PCA were measured from all participants, whereas
+RSVA and RSVB were measured from all RSV outcome cases and a stratified random sample of non-cases using a two-phase case-control sampling design.  
+
+## Preliminary analyses in preparation for the correlates analyses
+
+Prior to the immune correlates analyses, superlearning was used to develop a maternal enrollment/baseline RSV risk score based on maternal characteristics at enrollment, and to develop an infant birth/delivery RSV risk score based on infant characteristics at birth/delivery.  The analysis yielded a maternal enrollment risk score with modest accuracy for predicting whether RSV disease would occur (estimated CV-AUC = 0.56-0.60 depending on endpoint 1 or 2 and vaccine or placebo arm).  The most important RSV disease prognostic variables were whether other children $<$ 5 years of age were in the 
+home and maternal asthma status. 
+The infant birth/delivery variables had no ability to predict RSV disease outcome (CV-AUCs $<$ 0.5).  Therefore, all immune correlates analyses adjusted for maternal baseline risk score but not for an infant birth/delivery risk score.  In addition, all immune correlates analyses adjusted for the number of days between vaccination and birth.
+
+The D14 EIA and PCA readouts were highly correlated (r = 0.9), yet have different interpretations and thus were both analyzed. The neutralization readouts RSVA and RSVB were moderately correlated with each other (r = 0.5) and with EIA and PCA.  The correlation between D0 and D14 readouts in the placebo arm was 0.9 for RSVB/EIA/PCA and 0.7 for RSVA, suggesting that RSVA measurement error was higher than for the other three assays.  The correlation between D14 and cord blood readouts in the placebo arm was 0.8 for RSVB/EIA/PCA and 0.7 for RSVA.  All four assays were advanced for assessment as immune correlates.
+
+## Correlates of Risk Univariable Markers: Objective to assess each fold-rise, D14, and cord blood marker as a correlate of risk of RSV disease
+
+Based on logistic regression modeling, there was no evidence for a correlate of risk of endpoint 1 for any of the markers for either treatment arm 
+(Figures \ref{hr_forest_y1_trt1} and \ref{hr_forest_y1_trt0}). 
+In contrast, for endpoint 2, fold-rise of each of the 4 markers RSVA, RSVB, EIA, PCA was inversely associated with outcome, 
+with estimated odds ratios for the vaccine arm of 0.13, 0.19, 0.19, 0.21 per 10-fold increase of RSVA, RSVB, EIA, and PCA, respectively
+(Figure \ref{hr_forest_y2_trt1}).  The precision of the correlate was greater for EIA and PCA than for RSVA and RSVB, with narrower confidence intervals about the odds ratios. The result for the fold-rise EIA marker was significant after the pre-specified multiple hypothesis testing adjustment. The message from the results is that for all four assays, fold-rise in vaccine recipients was consistently an inverse correlate of risk of endpoint 2 with a large estimated effect size.  Given there were only 14 vaccine breakthrough type 2 endpoints, these consistent results with the 95% confidence intervals generally lying below one (e.g., 95% CI 0.06 to 0.62 around the odds ratio estimate of 0.21 for the fold-rise EIA marker) highlights the strong correlations with risk.  Point estimates for the D14 versions of the markers, and the cord blood versions of the markers, indicated inverse associations, but with odds ratio estimates closer to one.
+
+Complementing the logistic regression modeling analysis, nonparametric threshold correlates analyses were applied to each D14 and fold-rise antibody marker. Results were reported 
+as point and simultaneous 95% confidence interval estimates of the risk of RSV endpoint 1 or 2 
+varying over subgroups of vaccine recipients defined by antibody marker above a given threshold v, repeating the analysis over all possible thresholds v.  The same analyses were done pooling over vaccine and placebo recipients.
+
+For endpoint 1, risk of RSV disease did not vary markedly depending on threshold value of the antibody marker, consistent with the logistic regression results (Figures \ref{fig:PLOT_EIA_log10d14_y1_Vaccine_pointwiseCI}--\ref{fig:PLOT_RSVB_log10cord_y1_Vaccine_pointwiseCI}). In contrast, the results for endpoint 2 showed that for EIA and PCA fold rise, RSV risk sharply decreased across subgroups defined by increasing thresholds, approaching zero risk at highest thresholds (Figures \ref{fig:PLOT_EIA_log10d14overd0_y2_Vaccine_pointwiseCI} and  \ref{fig:PLOT_PCA_log10d14overd0_y2_Vaccine_pointwiseCI}).  There were no RSV disease endpoint 2 cases above fold-rises of about 20 and 25 for EIA and PCA, respectively.  In contrast, RSV risk did not change much across subgroups defined by D14 marker thresholds.  RSV risk decreased with threshold of cord blood response, yet with upticks in point estimates in the right tail that rendered the results less clear about potential threshold correlates compared to the fold rise markers.  For RSVA and RSVB, there was some decrease in endpoint 2 RSV risk with increasing thresholds of fold-rise, Day 14, and cord blood markers, yet with degree of change less than that for fold rise EIA and fold rise PCA.  In conclusion, the threshold analyses supported potential fold rise EIA and PCA threshold correlates for endpoint 2, and did not support threshold correlates for endpoint 1.
+
+## Correlates of Risk Multivariable Markers: Objective to assess the estimated optimal surrogate via machine learning accounting for all of the antibody markers
+
+Superlearning modeling was conducted to build models most predictive of endpoint 1 and to build models most predictive of endpoint 2, within each randomization/treatment arm,
+based on each of 29 input variable sets defined by maternal baseline variables and all of the antibody markers measured at D0 and D14 in pregnant mothers and in cord blood in infants.  The analyses yielded the following conclusions: 
+
+-- Endpoint 1 can be predicted better than endpoint 2, for example for the placebo arm the Superlearner yielded estimated CV-AUC = 0.890 (95% CI 0.604 to 0.968)
+for endpoint 1 (Table `r visc_ref("tab:SLperformance-plac-y1")`) and estimated CV-AUC = 0.748 (95% CI 0.577 to 0.862) for endpoint 2
+(Table `r visc_ref("tab:SLperformance-plac-y2")`).
+
+-- RSV disease can be predicted with comparable prediction accuracy in the placebo arm as in the vaccine arm (endpoint 2), or slightly better prediction accuracy in the placebo arm (endpoint 1). 
+
+-- The maternal baseline variables alone provided reasonably good classification accuracy, for example estimated CV-AUC = 0.853 (95% CI 0.636 to 0.948) for endpoint 1 and the placebo arm and estimated CV-AUC = 0.727 (95% CI 0.548 to 0.851) for endpoint 2 and the placebo arm. 
+
+-- Antibody markers improved prediction accuracy compared to only using maternal baseline variables.  The best antibody marker predictors were fold-rise EIA and fold-rise PCA, for each endpoint 1 and 2 and each of the vaccine and placebo arms.  For example, the Superlearner model for the vaccine arm with EIA fold-rise and maternal baseline variables yielded estimated CV-AUC = 0.859 (95% CI 0.734 to 0.929) for endpoint 1 (Table `r visc_ref("tab:SLperformance-vacc-y1")`)
+and estimated CV-AUC = 0.747 (95% CI 0.611 to 0.844) for endpoint 2 (Table `r visc_ref("tab:SLperformance-vacc-y2")`).
+D14 markers (not baseline subtracted) were weaker predictors, and RSVA and RSVB markers were inferior predictors to EIA and PCA.  
+
+-- Generally the modeling did not support any improved performance gained by including multiple time points or multiple assays/markers in the same predictive model. Fold-rise EIA and fold-rise PCA emerge as the best antibody marker predictors of disease risk as stand-alone markers, providing improved prediction on top of that provided by maternal baseline variables alone.  Thus the data support that a single assay/biomarker may provide the best correlate.
+
+## Correlates of Protection: Objective to assess immune CoPs as correlates/modifiers of vaccine efficacy against RSV disease
+
+Principal stratification causal inference analyses were conducted to assess how vaccine efficacy (VE) varied over vaccinated subgroups defined by each of four antibody biomarker variables: EIA fold-rise, PCA fold-rise, D14 RSVA, and D14 RSVB.  For endpoint 1, the results did not provide evidence that VE was modified by any of the four antibody markers (all p-values $>$ 0.10).  For endpoint 2, the analysis supported that EIA fold-rise was positively correlated with VE against endpoint 2 (p=0.013, 
+Figure \ref{fig:yingfig1}).  For vaccine recipients with fold-rise about 3.2, estimated VE was less than 50% and the 95% confidence intervals were wide to the left of this marker value.  
+
+The confidence intervals were more precise for larger values of the marker, with estimated VE exceeding 75% for values of fold-rise above about 16 and approaching 90% and greater for higher degrees of fold rise.  These results support that a 15--20+ fold-rise in EIA is associated with high-level vaccine efficacy.  For the other three markers, the results did not provide evidence that VE was modified by any of the antibody markers (all p-values $>$ 0.10).
+
+## Correlates of Protection: Objective to assess immune CoPs in terms of mediators of vaccine efficacy against RSV disease
+
+We applied formal causal mediation methods to assess each of the four fold-rise and four D14 antibody markers as mediators of VE against endpoint 1 and against endpoint 2.  For technical reasons described in the report, the methods did not provide reliable answers.  Therefore, we conducted post-hoc exploratory analyses using a standard approach to surrogate endpoint evaluation (@prentice1989) that was developed before the formal causal mediation framework was developed. This approach was applied by fitting multiple logistic regression models adjusting for baseline potential confounding variables.  Based on this modeling, an antibody marker is supported to meet the Prentice criteria for a valid surrogate endpoint if all of the following conditions are met: (1) there is no evidence of an interaction between randomization arm and the marker; (2) in a main effects model taking out the interaction term, the antibody marker is associated with outcome; (3) in this main effects model, there is no evidence of an association of the treatment/randomization assignment with outcome (i.e., after accounting for the marker, treatment contains no additional information about risk).
+
+The fold rise EIA and PCA markers adhered well to all of the conditions, and thus were supported as potentially valid surrogate endpoints.
+In contrast, the fold rise RSVA and RSVB markers failed condition (2), with a significant association of treatment with outcome when the antibody marker was included in the model.  This supports that the fold rise EIA and PCA markers have greater validity as surrogate endpoints than the fold rise RSVA and RSVB markers.  In addition, all of the D14 markers violated at least one of the conditions (1) through (3). 
+
+## Overall conclusions and discussion
+
+Fold rise EIA and fold rise PCA (enrollment to D14 post vaccination) had consistent evidence as correlates of risk (CoR) and correlates of protection (CoP) against endpoint 2, based on (1) logistic regression CoR modeling; (2) nonparametric threshold CoR modeling; (3) machine learning multivariable CoR analysis; (4) correlate of VE CoP analysis; and (5) Prentice surrogate endpoint evaluation CoP analysis. Because these two markers were highly correlated, the data support that either marker may be a suitable CoP.
+
+The fold rise markers showed stronger evidence as correlates than the D14 markers. How might this be explained and what are the implications?  One hypothesis is that 
+fold rise is a non-mechanistic CoP where a higher fold rise is a signature of antibody with the right quality to confer protection.  Affinity maturation is one putatively important quality, and the association of affinity maturation with fold rise could be tested experimentally.  
+
+In theory, a mechanistic CoP would capture the amount of the needed immune response that crossed the placenta and was present during risk of RSV disease during early life.  It is possible that fold rise EIA and PCA is better correlated with the amount of antibody present during early life than D14 EIA and PCA.  This could be evaluated.  
+
+Another question is why were EIA and PCA fold rise better correlates than RSVA and RSVB?  The neutralization assays involve three proteins, F, G, and another protein. Only F protein is in the vaccine. The difference in F protein between RSVA and RSVB assay is small, but the G proteins between the two assays may be quite different. The G protein may also drive a large portion of the neutralization responses. On the other hand, EIA and PCA are both F-protein focused. As such, the relevance of the neutralization markers for vaccine protection may have been diminished by the non-F proteins. In addition, the EIA and PCA appeared to have less technical measurement error than the RSVA and RSVB markers, which led to narrower confidence intervals about association parameters based on these markers.
+
+A limitation of the correlates analysis was a small number of evaluable vaccine breakthrough endpoint cases for endpoint 2 (n=14), limiting precision of correlates analyses, and not allowing the formal mediation analyses to be effectively implemented.  The fact that strong signals for correlates shone through despite only 14 vaccine breakthrough cases may suggest the strength of fold rise EIA and fold rise PCA as correlates.  However, it would be important to seek to replicate the findings or bolster the findings with additional data.  One possibility is to seek to validate the correlates using all or a subset of the non-South African sites in the trial.
+<!-- One possibility is to seek to validate the correlates using data on 38 (20 vaccine, 18 placebo) additional RSV disease cases (RSV LRTI hospitalization exploratory endpoint) in the study at South African sites with a different endpoint definition than was included in endpoints 1, 2, and 3.  For this exploratory endpoint, RSV LRTI was documented at the time of hospitalization.  Estimated vaccine efficacy against these additional endpoints in South Africa through 90 days of age was similar to that against severe hypoxemia: 61.6% against the RSV LRTI hospitalization exploratory endpoint vs. 73.6% against severe hypoxemia.  -->
+
+Another question is why were there no correlates against endpoint 1 and there were correlates against endpoint 2?  Both endpoints included RSV LRTI with severe hypoxemia, with difference that endpoint 1 also counted RSV LRTI MS and RSV LRTI with hospitalization as events.  This suggests that severe hypoxemia may be the critical aspect of the endpoint that defines a correlate of protection.
+
+
+ 

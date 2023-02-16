@@ -1,0 +1,280 @@
+---
+title: "ID33-Wilson RSV Correlates Analysis (Version 3.0)"
+shorttitle: "ID33-Wilson RSV Correlates Analysis (Version 3.0)"
+from:
+ - name: Peter Gilbert
+   email: pgilbert@fredhutch.org
+   contact: yes
+ - name: Youyi Fong
+   email: yfong@fredhutch.org
+   contact: yes
+ - name: Ying Huang
+   email: yhuang@fredhutch.org
+   contact: no
+ - name: Lars Wim Paul van der Laan 
+ - name: Wenbo Zhang
+ - name: Bhavesh Borate
+to:
+ - name: Iksung Cho
+ - name: Matthew Lawlor 
+ - name: Lou Fries
+dropcc: false
+cc:
+ - name: Alicia Sato
+ - name: Eva Chung
+ - name: Michelle Chung
+includesummary: false
+summary: 
+  A short summary about your report. 
+bibliography: bibliography.bib
+lof: true
+lot: true
+toc: true
+header-includes:
+   - \usepackage{natbib}
+   - \usepackage{float}
+   - \usepackage{amsmath}
+   - \usepackage{comment}
+   - \usepackage{subfig}
+   - \usepackage[colorlinks,citecolor=red,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref}
+output: 
+  VISCtemplates::visc_pdf_document: default
+  VISCtemplates::visc_word_document: default
+---
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\newcommand{\pathCoRinput}{CoR/input}
+\newcommand{\pathThreshinput}{nonparam_threshold/input/y2_Vaccine}
+\newcommand{\pathThreshhinput}{nonparam_threshold/input/y1_Vaccine}
+\newcommand{\pathThreshpooledinput}{nonparam_threshold/input/y2_Pooled}
+\newcommand{\pathThreshhpooledinput}{nonparam_threshold/input/y1_Pooled}
+<!---
+Program Name: RSV correlates analysis
+Creation Date: 2020-04-27
+Full name of author: 
+Project or Protocol: RSV correlates
+Purpose or description of program: Report results from RSV correlates analysis
+Location of program: https://github.com/FredHutch/RSVcorrelatesAnalysis
+--->
+
+```{r package-loading-and-options, warning=FALSE, include=FALSE, message=FALSE}
+
+library(RSVcorr)
+library(vimp)
+
+# Add additional packages needed here 
+# Only works for CRAN packages, use library() for packages on Bioconductor or GiHub
+packages <- c("here", "conflicted", "tidyverse", "knitr", "kableExtra", "VISCfunctions", "gridExtra", "tidyr")
+
+# If a package is installed, it will be loaded
+# If any are not, the missing package(s) will be installed and loaded
+package.check <- lapply(packages, FUN = function(x) {
+  if (!require(x, character.only = TRUE)) {
+    # VISCfunctions must be installed in seperately (not in CRAN)
+    if (x == 'VISCfunctions')
+      stop('The package "VISCfunctions" must be installed through GitHub: https://github.com/FredHutch/VISCfunctions.git')
+    
+    install.packages(x, dependencies = TRUE,repos = "http://cran.us.r-project.org")
+  }
+  library(x, character.only = TRUE)
+})
+
+# Enforcing specific version of pandoc
+if (numeric_version(rmarkdown::pandoc_version()) < numeric_version('2.0'))
+  stop('pandoc must be at least version "2.0')
+
+# Set some knitr options
+# This will always generate two figures (pdf and png, which can be handy for presentations)
+opts_chunk$set(tidy = TRUE, cache = FALSE, message = TRUE, warning = TRUE,
+               echo = FALSE, dev = c("png", "pdf"), dpi = 200,
+               out.width = '100%', out.extra = '', fig.align = "center",
+               fig.pos = "H", fig.height = 7, fig.width = 7, fig.path = "C:/figure-latex/")
+
+# NA's will be blank in tables
+options(knitr.kable.NA = '')
+
+# I use Claus Wilke's colorblindr package for the experiment colors. 
+# devtools::install_github("clauswilke/colorblindr")
+
+# spelling::spell_check_files(here::here("correlates_analysis", "correlates_analysis.pdf"))
+
+# # functions for this report
+# source(here::here("R", "functions.R"))
+```
+
+```{r conflicted-preferences, message=FALSE}
+
+# filter() is used in both dplyr and stats, so need to set the preference to dplyr
+conflict_prefer("filter", "dplyr")
+conflict_prefer("summarise", "dplyr")
+```
+
+```{r word-pdf-functions}
+
+# Need to see if PDF or Word Output
+current_output_type <- knitr::opts_knit$get('rmarkdown.pandoc.to')
+
+# If interactive setting to pandoc for easier visualization
+output_type <- ifelse(
+  !is.null(current_output_type) && current_output_type == 'latex', 
+  'latex', 
+  'pandoc'
+  )
+kable_warnings <- ifelse(output_type == 'latex', TRUE, FALSE)
+pandoc_markup <- ifelse(output_type == 'pandoc', TRUE, FALSE)
+
+# Setting up references depending on Word or PDf output
+visc_ref <- function(ref_in) {
+  ifelse(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex', 
+          paste0('\\ref{', ref_in, '}'), 
+          paste0('\\@ref(', ref_in, ')')) 
+}
+
+visc_clearpage <- function() {
+  ifelse(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex', 
+          '\\clearpage', 
+         '#####')
+} 
+```
+
+
+`r visc_clearpage()`
+
+\textbf{Version 2.0 of the RSV immune correlates report} was updated with analyses requested by Dr. Keith Klugman: Section [Posthoc analysis to assess fold change from maternal baseline to cord blood in immunologic biomarkers as CoR for endpoint 2].
+
+\textbf{Version 3.0 of the RSV immune correlates report} contains enhancements to the non-parametric threshold-risk plots: Figures \ref{fig:PLOT_EIA_log10d14_y1_Vaccine_pointwiseCI}--\ref{fig:PLOT_RSVB_log10cord_y2_Pooled_pointwiseCI} have been revamped with point-wise confidence intervals, superimposed marker-specific reverse CDF (RCDF) plots, and the threshold of no more events has been marked by a vertical red line.
+
+
+# Executive Summary
+
+```{r, child=c('ExecutiveSummary.Rmd')}
+```
+
+# Materials and methods
+
+The materials and methods are fully described in the Statistical Analysis Plan document (Section [Statistical Analysis Plan]). Figure \ref{fig:endpoints_venn_diagrams} shows how the endpoints primarily evaluated for correlates analyses in this report (endpoints 1 and 2) relate to the endpoints defined in the efficacy analyses. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\textwidth]{endpoints_venn_diagrams}
+    \caption{Venn diagram showing relationship of endpoints 1 and 2 that were evaluated for correlates analyses with endpoints defined in the efficacy analyses. Endpoint 3, RSV LRTI with Severe Hypoxemia without cough, is closely related to and a subset of endpoint 2.}
+    \label{fig:endpoints_venn_diagrams}
+\end{figure}
+
+
+# Risk Score analysis
+
+```{r, child=c('SL_risk_score/SL_risk_score.Rmd')}
+```
+
+
+`r visc_clearpage()`
+
+# Immune biomarkers unsupervised exploratory analysis (preparation for correlates analyses)
+
+```{r, child=c('exploratory/exploratory_plots.Rmd')}
+```
+
+
+`r visc_clearpage()`
+
+# Correlates of risk
+
+<!-- \pathCoRinput -->
+
+```{r, child=c('CoR_logistic_regression/CoR_obj1.Rmd')}
+```
+
+```{r, child=c('CoP_nonparametric_threshold/estimated_conditional_risk.Rmd')}
+```
+
+```{r, child=c('CoR_logistic_regression/CoR_obj2.Rmd')}
+```
+
+
+```{r, child=c('objective3/SL_estimated_optimal_surrogate.Rmd')}
+```
+
+
+```{r, child=c('CoR_logistic_regression/CoR_posthoc.Rmd')}
+```
+
+
+
+
+`r visc_clearpage()`
+
+# Correlates of protection
+
+```{r, child=c('CoP_logistic_regression/CoP_baselineVE.Rmd')}
+```
+
+```{r, child=c('CoP_principal_stratification/CoP_Ying.Rmd')}
+```
+
+
+```{r, child=c('CoP_logistic_regression/CoP_mediator.Rmd')}
+```
+
+```{r, child=c('CoP_logistic_regression/CoP_posthoc.Rmd')}
+```
+
+
+
+`r visc_clearpage()`
+
+# Appendix
+
+## Risk score analysis
+
+```{r, child=c('SL_risk_score/SL_risk_score_Appendix.Rmd')}
+```
+
+## Superlearner regression for calculating the estimated optimal surrogate
+
+```{r, child=c('objective3/SL_estimated_optimal_surrogate_Appendix.Rmd')}
+```
+
+
+`r visc_clearpage()`
+
+```{r, child=c('Keith_analysis.Rmd')}
+```
+
+# References
+
+<div id="refs"></div>
+
+`r visc_clearpage()`
+
+# Reproducibility information
+
+```{r Software-Session-Information, results='asis', message=FALSE, warning=kable_warnings}
+### Chunk to create reproducibility tables
+# loading in rmarkdown and VISCtemplates so we can capture version number
+if (any(installed.packages()[,1] == 'rmarkdown')) suppressWarnings(library(rmarkdown))
+if (any(installed.packages()[,1] == 'VISCtemplates')) suppressWarnings(library(VISCtemplates))
+
+my_session_info <- VISCfunctions::get_session_info()
+kable(
+  my_session_info$platform_table,
+  format = output_type,
+  booktabs = TRUE,
+  linesep = '',
+  caption = "Reproducibility software session information"
+  ) %>%
+  kable_styling(font_size = 8, latex_options = "hold_position")
+```
+
+```{r Software-Package-Version-Information, results='asis', warning=kable_warnings}
+kable(
+  my_session_info$packages_table,
+  format = output_type, booktabs = TRUE,
+  linesep = '',
+  caption = "Reproducibility software package version information"
+  ) %>%
+  kable_styling(font_size = 8, latex_options = "hold_position")
+```
+
+
+# Statistical Analysis Plan

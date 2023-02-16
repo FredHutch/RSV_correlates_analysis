@@ -1,0 +1,364 @@
+## Post-baseline correlates of VE 
+
+
+VE curves for EIA and PCA (d14 - d0, i.e. log10 fold-rise) and for RSVA and RSVB at d14, for each of endpoints 1 and 2, were estimated using the pseudo-score estimator of @huang2013design and @huang2018evaluating. These four markers were assessed based on the SAP that stated only markers with an adequate correlation with the baseline measurement of the biomarker would be included.  For each pair of biomarker ($S(1)$) and endpoint, VE curves were constructed utilizing corresponding baseline biomarkers as the baseline immunogenicity predictor, based on a probit risk model conditional on $S(1)$, treatment, interaction between treatment and $S(1)$, after adjusting for additional confounders (the indicator of less than 30 days between vaccination and birth, and the maternal risk score).
+<!-- vacc2birthLESSTHAN30 and riskScoreBin.mat.endpoint -->
+VE curves for EIA and PCA were constructed using either the cohort (phase 1 data) or case/control (phase 2 data) samples. VE curves for RSVA and RSVB were constructed using case/control samples. Note that the case/control sample includes imputed values for a few observations. These imputed values were added to the cohort sample as well for compatibility. VE curves were presented together with 95% pointwise and simultaneous confidence intervals based on 1,000 bootstrap samples (stratified on case/control sampling strata). Also shown in the figures are two-sided p-values based on Wald-test for interaction between treatment and $S(1)$ in the risk model, which evaluate whether VE changes over subgroups defined by the antibody marker $S(1)$. 
+
+For endpoint 1, the results do not provide evidence that VE is modified by any of the four antibody markers (all p-values $>$ 0.10).
+
+For endpoint 2, the analysis supports that change in EIA (d14 - d0, i.e. log10 fold-rise) positively associated with VE against endpoint 2 (Figure \ref{fig:yingfig1}). 
+For vaccine recipients with log10 fold-rise $<$ 0.5 (3.2 on the fold-rise scale), estimated VE is less than 50% and the 95% confidence intervals were wide to the left of this marker value.   
+
+The confidence intervals were more precise for larger values of the marker, with estimated VE exceeding 75% for values of log10 fold-rise above about 1.2 (15.8 on the fold-rise scale) and approaching 90% and greater for higher values.  These results support that a 15--20+ fold-rise in EIA is associated with high-level of vaccine efficacy. For the other three markers, the results do not provide evidence that VE was modified by any of these markers (all p-values > 0.10).
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCohort1Full_withcovEIA.log10d14overd0_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCohort1Full_withcovEIA.log10d14overd0_y2}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovEIA.log10d14overd0_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovEIA.log10d14overd0_y2}
+    \caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 (left panels) and endpoint 2 (right panels) as a function of log10-transformed EIA difference between d14 and d0, estimated using the whole cohort (top panels) or the case-control samples (bottom panels).}
+    \label{fig:yingfig1}
+    \end{figure}
+    
+    
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCohort1Full_withcovPCA.log10d14overd0_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCohort1Full_withcovPCA.log10d14overd0_y2}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovPCA.log10d14overd0_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovPCA.log10d14overd0_y2}
+    \caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 (left panels) and endpoint 2 (right panels) as a function of log10-transformed PCA difference between d14 and d0, estimated using the whole cohort (top panels) or the case-control samples (bottom panels).}
+    \label{fig:yingfig2}
+    \end{figure}
+    
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_nocovRSVA.log10d14_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_nocovRSVA.log10d14_y2}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovRSVA.log10d14_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovRSVA.log10d14_y2}
+    \caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 (left panels) and endpoint 2 (right panels) as a function of log10-transformed RSVA at d14, estimated using the case/control samples.}
+    \label{fig:yingfig3}
+    \end{figure}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_nocovRSVB.log10d14_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_nocovRSVB.log10d14_y2}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovRSVB.log10d14_y1}
+    \includegraphics[angle=0,scale=0.4]{CoP_Ying/input/figCC_withcovRSVB.log10d14_y2}
+    \caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 (left panels) and endpoint 2 (right panels) as a function of log10-transformed RSVB at d14, estimated using the case/control samples.}
+    \label{fig:yingfig4}
+    \end{figure}
+
+
+
+
+
+\begin{comment}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figEIA.log10d14overd0_y2}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 2 as a function of log10-transformed EIA between d14 and d0.}
+\label{fig:yingfig1}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figPCA.log10d14overd0_y1}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 as a function of log10-transformed PCA between d14 and d0.}
+\label{fig:yingfig7}
+\end{center}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figPCA.log10d14overd0_y2}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 2 as a function of log10-transformed PCA between d14 and d0.}
+\label{fig:yingfig1}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figRSVA.log10d14_y1}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 as a function of log10-transformed RSVA at d14.}
+\label{fig:yingfig1}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figRSVA.log10d14_y2}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 2 as a function of log10-transformed RSVA at d14.}
+\label{fig:yingfig8}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figRSVB.log10d14_y1}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 1 as a function of log10-transformed RSVB at d14.}
+\label{fig:yingfig9}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=0,scale=0.6]{CoP_Ying/input/figRSVB.log10d14_y2}
+\caption{Point and 95\% confidence interval estimates of the VE(s) curve for endpoint 2 as a function of log10-transformed RSVB at d14.}
+\label{fig:yingfig10}
+\end{center}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.overall.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated multiplicative VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed. }
+\label{fig:yingfig1.2}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.overall.additive_rho1.0}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.3}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.overall.additive_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.4}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach1.multiplicative_rho1.0}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.5}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach1.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.6}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach2.multiplicative_rho1.0}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.7}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach2.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.8}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach1.additive_rho1.0}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.9}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach1.additive_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.10}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach2.additive_rho1.0}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.11}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.Mix.serotype.approach2.additive_rho0.8}
+\caption{Results bridging VE(25) to hypothetical CYD14+15 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig1.12}
+\end{center}
+\end{figure}
+
+
+
+
+\clearpage
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.overall.multiplicative_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.1}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.overall.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.2}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.overall.additive_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.3}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.overall.additive_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for any Dengue endpoint by month 25 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.4}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach1.multiplicative_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.5}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach1.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.6}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach2.multiplicative_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.7}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach2.multiplicative_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated multiplicative VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.8}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach1.additive_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.9}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach1.additive_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 1 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.10}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach2.additive_rho1.0}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 1.0. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.11}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[angle=270,scale=0.6]{Figure//VE.EMP47.serotype.approach2.additive_rho0.8}
+\caption{Results bridging VE(25) to India 18-45 year old cohort. Estimated additive VE for serotype-specific Dengue endpoint by month 25 using approach 2 with 95\% bootstrap confidence intervals for fixed sensitivity parameter $\phi$ (ratio of VE curves) varying from 0.8 to 1.2 and $\rho$ (ratio of background risk curves) equal to 0.8. Estimated ignorance intervals and 95\% estimated uncertainty intervals (EUIs) are listed.}
+\label{fig:yingfig2.12}
+\end{center}
+\end{figure}
+
+
+
+\end{comment}
+
+\clearpage

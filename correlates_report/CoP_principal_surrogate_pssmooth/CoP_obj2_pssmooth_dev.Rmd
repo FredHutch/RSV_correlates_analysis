@@ -1,0 +1,122 @@
+---
+title: "Principal Surrogate Evaluation Using R Package `pssmooth`"
+author: "Michal Juraska"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+geometry: "left=0.5in,right=0.5in,bottom=0.75in,top=0.75in"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+rm(list=ls(all=TRUE))
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.align="center")
+
+codeDir <- "h:/SCHARP/RSV/RSVcorrelatesAnalysis/correlates_report"
+outDir <- c(file.path(codeDir, "Routput"),
+            file.path(codeDir, "Routput/pssmoothForRSV"),
+            file.path(codeDir, "Routput/noBaselineCovar"))
+#outDir4 <- file.path(codeDir, "Routput/restrictedToBiomarkerSupportInVaccinees")
+
+library(RSVcorr)
+# 'pssmoothForRSV' is a modification of the package code tailored for this analysis
+source(file.path(codeDir, "pssmoothForRSV.R"))
+
+cohort <- c("PP-IMM-M", "PP-IMM-I")
+y <- c("y1", "y2")
+ps <- c("EIA.log10d14", "PCA.log10d14")
+
+# plot labels
+xLab <- c("ELISA Day 14", "PCA Day 14")
+
+# x-axis tick marks
+xTicks <- list(c(200, 500, 2000, 5000, 20000, 80000),
+               c(6, 10, 20, 50, 100, 200, 500, 1000))
+
+# plot titles
+title <- c("IPW logistic reg on whole study cohort;\n2 binary baseline covariates",
+           "IPW logistic reg on case-control sample only;\n2 binary baseline covariates",
+           "IPW logistic reg on case-control sample only;\nno baseline covariates")
+```
+
+```{r overallCE, include=FALSE}
+fit <- glm(y1 ~ trt, data=subset(dat.wide, ppimmfl=="Y"), family=binomial)
+prob <- predict(fit, newdata=data.frame(trt=0:1), type="response")
+CEy1.ppimM <- 1 - prob[2]/prob[1]
+
+fit <- glm(y1 ~ trt, data=subset(dat.wide, ppimifl=="Y"), family=binomial)
+prob <- predict(fit, newdata=data.frame(trt=0:1), type="response")
+CEy1.ppimI <- 1 - prob[2]/prob[1]
+```
+
+\pagebreak
+
+```{r, fig.width=10, fig.asp=1, fig.cap="PP-IMM-M cohort; VE against Endpoint 1 by ELISA at Day 14"}
+riskCurveFileName <- paste0("VEcurve_", cohort[1], "_", y[1], "_", ps[1], ".RData")
+
+par(mfrow=c(2, 2))
+for (i in 1:length(outDir)){
+  # list named 'oList'
+  load(file.path(outDir[i], riskCurveFileName))
+  # list named 'bList'
+  # load(file.path(outDir, bootRiskCurveFileName[i]))
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H01", overallPlaRisk=probLive[1], overallTxRisk=probLive[2])
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H02", MCEPconstantH02=CElive)
+  # plotMCEPcurve(summary(oList, contrast="te"), xLab=ps[i], includeLegend=(i==1), CE=CElive, pval=pval, legendPos="topleft")
+  plotMCEPcurve(summary(oList, contrast="te"), xLim=range(dat.wide[, ps[1]]), xLab=xLab[1], xTicks=xTicks[[1]], title=title[i], CE=CEy1.ppimM)
+}
+```
+
+\clearpage
+
+```{r, fig.width=10, fig.asp=1, fig.cap="PP-IMM-I cohort; VE against Endpoint 1 by ELISA at Day 14"}
+riskCurveFileName <- paste0("VEcurve_", cohort[2], "_", y[1], "_", ps[1], ".RData")
+
+par(mfrow=c(2, 2))
+for (i in 1:length(outDir)){
+  # list named 'oList'
+  load(file.path(outDir[i], riskCurveFileName))
+  # list named 'bList'
+  # load(file.path(outDir, bootRiskCurveFileName[i]))
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H01", overallPlaRisk=probLive[1], overallTxRisk=probLive[2])
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H02", MCEPconstantH02=CElive)
+  # plotMCEPcurve(summary(oList, contrast="te"), xLab=ps[i], includeLegend=(i==1), CE=CElive, pval=pval, legendPos="topleft")
+  plotMCEPcurve(summary(oList, contrast="te"), xLim=range(dat.wide[, ps[1]]), xLab=xLab[1], xTicks=xTicks[[1]], title=title[i], CE=CEy1.ppimI)
+}
+```
+
+\clearpage
+
+```{r, fig.width=10, fig.asp=1, fig.cap="PP-IMM-M cohort; VE against Endpoint 1 by PCA at Day 14"}
+riskCurveFileName <- paste0("VEcurve_", cohort[1], "_", y[1], "_", ps[2], ".RData")
+
+par(mfrow=c(2, 2))
+for (i in 1:length(outDir)){
+  # list named 'oList'
+  load(file.path(outDir[i], riskCurveFileName))
+  # list named 'bList'
+  # load(file.path(outDir, bootRiskCurveFileName[i]))
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H01", overallPlaRisk=probLive[1], overallTxRisk=probLive[2])
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H02", MCEPconstantH02=CElive)
+  # plotMCEPcurve(summary(oList, contrast="te"), xLab=ps[i], includeLegend=(i==1), CE=CElive, pval=pval, legendPos="topleft")
+  plotMCEPcurve(summary(oList, contrast="te"), xLim=range(dat.wide[, ps[2]]), xLab=xLab[2], xTicks=xTicks[[2]], title=title[i], CE=CEy1.ppimM)
+}
+```
+
+\clearpage
+
+```{r, fig.width=10, fig.asp=1, fig.cap="PP-IMM-I cohort; VE against Endpoint 1 by PCA at Day 14"}
+riskCurveFileName <- paste0("VEcurve_", cohort[2], "_", y[1], "_", ps[2], ".RData")
+
+par(mfrow=c(2, 2))
+for (i in 1:length(outDir)){
+  # list named 'oList'
+  load(file.path(outDir[i], riskCurveFileName))
+  # list named 'bList'
+  # load(file.path(outDir, bootRiskCurveFileName[i]))
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H01", overallPlaRisk=probLive[1], overallTxRisk=probLive[2])
+  # pval <- testConstancy(oList, boot=bList, contrast="te", null="H02", MCEPconstantH02=CElive)
+  # plotMCEPcurve(summary(oList, contrast="te"), xLab=ps[i], includeLegend=(i==1), CE=CElive, pval=pval, legendPos="topleft")
+  plotMCEPcurve(summary(oList, contrast="te"), xLim=range(dat.wide[, ps[2]]), xLab=xLab[2], xTicks=xTicks[[2]], title=title[i], CE=CEy1.ppimI)
+}
+```
+

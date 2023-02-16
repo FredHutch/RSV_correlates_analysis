@@ -1,0 +1,140 @@
+## Posthoc exploratory analyses
+
+### Baseline positivity
+
+To further investigate the differential between D14 and fold rise markers performance, we look at fold rise more closely in the spaghetti plots that show the markers longitudinally from baseline to D14. Based on the plots, we divide the volunteers into baseline positive and baseline negative and fit regression models including baseline positivity. The results do not support the baseline positivity being a statistically significant effect modifier, probably due to the small sample size.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/interactionplot_d0_d14_by_y1_vacc}
+    \caption{Change from D0 to D14. Endpoint 1 cases are shown in red. Vaccine arm}
+    \label{fig:interactionplot_d0_d14_by_y1_vacc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/interactionplot_d0_d14_by_y2_vacc}
+    \caption{Change from D0 to D14. Endpoint 2 cases are shown in red. Vaccine arm}
+    \label{fig:interactionplot_d0_d14_by_y2_vacc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{\pathCoRinput/interactionplot_d0_d14_by_y3_vacc}
+    \caption{Change from D0 to D14. Endpoint 3 cases are shown in red. Vaccine arm}
+    \label{fig:interactionplot_d0_d14_by_y3_vacc}
+\end{figure}
+
+\clearpage
+
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y2_trt1_EIA_d14overd0_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline EIA positivity is defined by a cutoff of 2.5, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 2, vaccine arm, EIA, fold change. 
+     }
+    \label{tab:CoR_y2_trt1_EIA_d14overd0_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y2_trt1_EIA_d14_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline EIA positivity is defined by a cutoff of 2.5, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 2, vaccine arm, EIA, D14. 
+     }
+    \label{tab:CoR_y2_trt1_EIA_d14_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y2_trt1_PCA_d14overd0_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline PCA positivity is defined by a cutoff of 1.0, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 2, vaccine arm, PCA, fold change. 
+     }
+    \label{tab:CoR_y2_trt1_PCA_d14overd0_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y2_trt1_PCA_d14_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline PCA positivity is defined by a cutoff of 1.0, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 2, vaccine arm, PCA, D14. 
+     }
+    \label{tab:CoR_y2_trt1_PCA_d14_baselinepos}
+\end{table}
+
+\clearpage
+
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y1_trt1_EIA_d14overd0_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline EIA positivity is defined by a cutoff of 2.5, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 1, vaccine arm, EIA, fold change. 
+     }
+    \label{tab:CoR_y1_trt1_EIA_d14overd0_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y1_trt1_EIA_d14_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline EIA positivity is defined by a cutoff of 2.5, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 1, vaccine arm, EIA, D14. 
+     }
+    \label{tab:CoR_y1_trt1_EIA_d14_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y1_trt1_PCA_d14overd0_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline PCA positivity is defined by a cutoff of 1.0, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 1, vaccine arm, PCA, fold change. 
+     }
+    \label{tab:CoR_y1_trt1_PCA_d14overd0_baselinepos}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_y1_trt1_PCA_d14_baselinepos}
+    \caption{OR and p-values from models to investigate the impact of baseline positivity. Baseline PCA positivity is defined by a cutoff of 1.0, which is based on the fact that the distribution of D0 is a mixed distribution of point mass and a continuous distribution. Endpoint 1, vaccine arm, PCA, D14. 
+     }
+    \label{tab:CoR_y1_trt1_PCA_d14_baselinepos}
+\end{table}
+
+### Cord fold change markers
+
+
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 2}\\
+    Vaccine arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt1_cordoverd0}
+    
+    \vspace{5pt}
+    Placebo arm\\
+    \input{\pathCoRinput/CoR_obj1a_y2_trt0_cordoverd0}
+
+}
+    \caption{CoR objective 1. Each cell corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data.
+    Time from vaccination to birth is adjusted for in analyses of maternal markers but not in analyses of infant markers. All models adjust for maternal risk score.
+     }
+    \label{tab:CoR_obj1a_cordfoldchange}
+\end{table}
+
+
+
+\begin{table}[H]
+\tiny{
+    \centering
+    \setlength{\tabcolsep}{.5ex}        
+    \input{\pathCoRinput/CoR_obj1_y2_trt1_foldchanges}
+    \caption{OR per SD changes for the two fold change markers in the vaccine arm. }
+    \label{tab:CoR_obj1_y2_trt1_foldchanges}
+}
+\end{table}
+
+\clearpage

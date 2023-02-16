@@ -1,0 +1,88 @@
+## Posthoc CoP analyses
+
+For endpoint 2, we assessed the Prentice criteria for a valid surrogate endpoint (@prentice1989).  In hindsight, it may have been a good idea to pre-specify this analysis in the SAP, as it is a common way to assess validity of a surrogate endpoint.  Based on the logistic regression modeling, an antibody response marker is supported to meet the Prentice criteria if all of the following conditions are met, all in the context of adjusting for baseline potential confounding variables:
+(1) there is no evidence of an interaction between treatment and the marker; (2) in a main effects model taking out the interaction term, there is an association of the antibody marker with outcome; (3) in this main effects model, there is no evidence of an association of the treatment/randomization assignment with outcome (i.e., after accounting for the marker, treatment contains no additional information about risk).
+
+All eight of the antibody markers (fold rise and D14) are supported to adhere to condition (1) above.
+
+The fold rise EIA and PCA markers adhere well to all of the condidtions, and thus are supported as potentially valid surrogate endpoints.
+In contrast the fold rise RSVA and RSVB markers fail condition (2), with a significant effect of treatment with antibody marker in the model.  This supports that the
+fold rise EIA and PCA markers have greater validity as surrogate endpoints than the RSVA and RSVB markers.
+
+None of the D14 markers are supported to adhere to all three conditions (1), (2), (3).  Again, for the RSVA and RSVB markers, there remains a significant effect of treatment in the main effect models.  For the EIA and PCA markers, there is no effect of treatment, such that condition (3) is supported.  However, condition (2) has much weaker support than for the fold rise markers.
+
+In conclusion, the fold rise EIA and PCA markers are best supported as Prentice surrogate endpoints.  One caveat of the analyses is validity of the surrogate endpoint evaluation depends on adjusting for all baseline confounders of the association of the antibody biomarker with outcome.  The analyses controlled for maternal risk score and the number of days from vaccination to birth.  If an important confounder was missed then the results could be misleading.
+
+
+
+
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 2 Foldrise}\\
+    
+    Vaccine arm\\
+    \input{CoR/input/CoR_obj1_y2_trt1_full_log10d14overd0}
+    
+    % it is important to have this empty line above for formatting
+    \vspace{5pt}
+    Placebo arm\\
+    \input{CoR/input/CoR_obj1_y2_trt0_full_log10d14overd0}
+
+    \vspace{5pt}
+    Interaction models\\
+    \setlength{\tabcolsep}{.5ex}\input{CoR/input/interaction_y2_log10d14overd0}
+
+    \vspace{5pt}
+    Main effects models\\
+    \setlength{\tabcolsep}{.5ex}\input{CoP_Youyi/input/main_y2_log10d14overd0}
+    
+}
+    \caption{Univariable fold change marker models. Each column corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data. \\
+    The interaction terms are not significant in the interaction models. In the main effects models, the treatment effects are not significant in the EIA and PCA models, but are significant in the RSVA and RSVB models. This suggests that EIA and PCA are more of a correlate than RSVA and RSVB.  
+}
+    \label{tab:y2_log10d14overd0_prentice}
+\end{table}
+
+
+\begin{table}[H]
+\tiny{
+    \textbf{Endpoint 2 D14}\\
+    
+    Vaccine arm\\
+    \input{CoR/input/CoR_obj1_y2_trt1_full_log10d14}
+    
+    % it is important to have this empty line above for formatting
+    \vspace{5pt}
+    Placebo arm\\
+    \input{CoR/input/CoR_obj1_y2_trt0_full_log10d14}
+
+    \vspace{5pt}
+    Interaction models\\
+    \setlength{\tabcolsep}{.5ex}\input{CoR/input/interaction_y2_log10d14}
+
+    \vspace{5pt}
+    Main effects models\\
+    \setlength{\tabcolsep}{.5ex}\input{CoP_Youyi/input/main_y2_log10d14}
+    
+}
+    \caption{Univariable D14 marker models. Each column corresponds to one model. RSVA and RSVB models are fitted to phase 2 data, PCA and EIA models are fitted to phase 1 data. \\
+    The interaction terms are not significant in the interaction models. In the main effects models, the treatment effects are not significant in the EIA and PCA models, but are significant in the RSVA and RSVB models. This suggests that EIA and PCA are more of a correlate than RSVA and RSVB.  
+}
+    \label{tab:y2_log10d14_prentice}
+\end{table}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{CoP_Youyi/input/boxplots_eia}
+    \includegraphics[width=\textwidth]{CoP_Youyi/input/boxplots_pca}
+    \caption{Boxplots of EIA and PCA D14 and fold change markers by treatment. There is overlap between treatment arms for both D14 and fold change. But the interpretation of high placebo arm values is different: for D14, this means some participants may have naturally high levels of marker; for fold change, it would be mostly noise. However, weakening this argument a bit is the fact that those with very high baseline values are also the ones with high fold change values, see the boxplot in the descriptive plots.}
+    \label{fig:boxplots_eia}
+\end{figure}
+
+
+
+
+\clearpage

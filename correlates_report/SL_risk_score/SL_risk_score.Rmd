@@ -1,0 +1,320 @@
+
+## Data
+The risk score analysis was carried out using data from the placebo group. The two candidate variable sets (maternal enrollment and birth/delivery variable sets) planned for the risk score analysis are shown in Tables \ref{tab:matVarstable} and \ref{tab:pedVarstable} respectively. 
+ 
+
+## Endpoints
+Out of the three RSV disease endpoints planned to be studied in the correlates analyses, only two were considered for the risk score analysis, namely:
+
+1. Endpoint 1: [“RSV Disease”] Composite endpoint defined as the first occurrence of any of the
+three protocol-specified endpoints MS RSV LRTI, RSV LRTI with severe
+hypoxemia, RSV LRTI with hospitalization in the expanded data set, and
+
+2. Endpoint 2: RSV LRTI with Severe Hypoxemia
+
+The decision to drop endpoint 3 (RSV LRTI with Severe Hypoxemia without cough) was made on the fact that the total RSV cases based off it were a subset of endpoint 2 with only slightly fewer cases (38 instead of 41) suggesting a minimal impact on the risk score.
+
+## Methods
+The development of the risk score for the maternal enrollment variable set was carried out upon dropping two variables: 
+
+1. prebrth variable: had data missing for 349/784 (44\%) of mother-infant pairs, and
+
+2. hiv variable: all non-NA values were negative. 
+
+Thus, development of the risk score for the maternal variables was based on n=9 covariates. Missing values for covariates were imputed using a multivariable regression method (mice package in R). Except for the child5 covariate, all variables had less than 5\% missing values. Even with a high number of missing values (8.9\%), the child5 variable was included in the analysis as it was found to have a significant association with RSV disease in the placebo group. All covariates were pre-scaled to have a mean of 0 and standard deviation of 1 (including binary, count, and continuous variables). 
+
+The development of the risk score for the birth variable set was tried out based on n=8 covariates (Table \ref{tab:pedVarstable}). Two variables, 1) indicator of evidence for GBS colonization, and 2) exposure to intrapartum antibiotic prophylaxis, were not received in data transfer from Novavax. Imputation of missing values and scaling for the covariates in the birth variable set was performed in the same way as for the maternal variable set.
+
+The superlearner ensemble model was based on input from 28 learner-screen combinations shown in Table \ref{tab:learnerScreencombo}. Note that except for the highcor_random screen, variables passing the screens are further ranked by univariate p-value and the highest ranking variables are selected up to a cap of k variables. Variables passing the highcor_random screen, in contrast, are selected at random. Thus, the performance of learners with the highcor_random screen is generally lower in comparison to the other three screens.
+
+Most of the learners used were non-data-adaptive and included glm, glm.interaction, bayesglm, step, lasso (glmnet) and gam. Two data-adaptive learners were also used and included cForest and xgboost.
+
+Two levels of cross-validation (CV) were used in the generation of the superlearner ensemble model:
+
+1. Outer level: CV-AUC is computed over 5-fold CV and used to estimate performance of the ensemble. This is repeated 10 times to improve stability. Note that once the screens are set up, the selected covariates remain constant for the superlearner job (over the 5 outer folds). The variability in the 10 random seeds is generated in the way superlearner splits up the data into the 5 outer folds. 
+
+2. Inner level: leave-one-out CV used to estimate individual learner performance and ensemble weights. 
+
+Eight superlearner models were fit for each endpoint and variable set with model k (among k=1, …, 8) only allowing models with at most k covariates in the model (Table \ref{tab:SLperfriskscore}). The eight superlearner models were compared by CV-AUC and the most parsimonious model (i.e., the model with smallest value of k) with estimated CV-AUC no more than 0.01 less than the superlearner model with highest estimated CV-AUC was selected for each endpoint. Larger models were not considered based on the available sample size.
+
+The selected superlearner models were subsequently used to derive the risk scores defined as the logit of the predicted probability of outcome for each participant. The risk scores for the vaccine recipients were predicted using the selected superlearner models (trained using data from the placebo group). The risk scores for the placebo recipients were derived upon splitting the data into 5 folds. For each of the 5 folds, SL (for the selected k) was trained on the rest of the placebo data and used to predict the probability of outcome. The 5-fold split was repeated 10 times and the probabilities were averaged.
+
+## Results
+
+For the maternal enrollment variable set, the best and parsimonious superlearner model selected for endpoint 1 as outcome was for k=1. Performance CV-AUCs of the superlearner and all individual learners for k=1 and endpoint 1 are shown as a forest plot in Figure \ref{fig:riskscoreEndpoint1}. The selected superlearner model had the child5 covariate (indicator for other children < 5 years of age in home) as a major predictor and gave a CV-AUC of 0.60 for the placebo group and an AUC of 0.59 for the vaccine group. The superlearner model selected for endpoint 2 as outcome was for k=2 (Figure \ref{fig:riskscoreEndpoint2}) and had child5 and maternal asthma status covariates as the major predictors and gave a CV-AUC of 0.60 for the placebo group and an AUC of 0.56 for the vaccine group. 
+For the birth variable set, no superlearner model was selected as performance CV-AUC with all models was very low (< 0.5). 
+
+Performance CV-AUCs of the superlearner and individual learners for all other k that were not selected to build the risk score are shown in the Appendix section (Figures \ref{fig:riskscoreAppendix1} - \ref{fig:riskscoreAppendix2}).
+
+The two risk scores (one each for endpoint 1 and 2) derived from the maternal enrollment variable set were advanced for use in the immune correlates analyses. 
+
+
+
+`r visc_clearpage()` 
+
+## Tables and Figures
+
+```{r maternalVarstable, warning=kable_warnings}
+caption <- "Maternal enrollment variables. \\label{tab:matVarstable}"
+
+data("dat.wide", package = "RSVcorr")
+## read in the super learner variables
+## Check if any covariates have corrleation > 0.9
+
+# Consider only placebo data for risk score analysis
+dat.wide.plbo <- dat.wide %>% filter(trt == 0)
+## set up X, Y for super learning
+# X_markers <- dat.wide.plbo %>%
+#   select(EIA.d0, EIA.log10d14overd0, EIA.d14, PCA.d0, PCA.log10d14overd0, PCA.d14, RSVA.d0, RSVB.d0, RSVA.log10d14overd0, RSVA.d14, RSVB.log10d14overd0, RSVB.d14)
+X_mom <- dat.wide.plbo %>%
+  mutate(age.at.trt.cat = case_when(age.at.trt > 28 ~ 1,
+                                    age.at.trt <= 28 ~ 0),          # Add this categorical variable to dat.wide and dat.long datasets !!!!
+         hiv = case_when(hiv == "POSITIVE" ~ 1,
+                         hiv == "NEGATIVE" ~ 0),
+         mhsmopr = case_when(mhsmopr == "Y" ~ 1,
+                             mhsmopr == "N" ~ 0),
+         m.ast = case_when(m.ast == "Y" ~ 1,
+                           m.ast == "N" ~ 0),
+         child5 = case_when(child5 == "Y" ~ 1,
+                            child5 == "N" ~ 0),
+         smoker = case_when(smoker == "Y" ~ 1,
+                            smoker == "N" ~ 0),
+         daycare = case_when(daycare == "Y" ~ 1,
+                             daycare == "N" ~ 0)) %>%
+  select(age.at.trt.cat, age.at.trt, bmi, 
+         mhsmopr, m.ast, child5, season, smoker, daycare, 
+         prebrth, hiv)   # Since hiv is NEGATIVE for 780/784 subjects and missing for other 4, drop it !!!!
+
+X_mom %>% map(~sum(is.na(.))) %>% as.data.frame() %>% t() %>% as.data.frame() %>%
+  tibble::rownames_to_column(var = "Variable Name") %>%
+  mutate(V1 = paste0(V1, "/", nrow(X_mom)," (", format(round((V1/nrow(X_mom))*100, 1), nsmall=1), "%)"),
+         Definition = case_when(`Variable Name` == "age.at.trt.cat" ~ "Indicator of age > 28 (coded as 1 if age > 28; 0 otherwise)",
+                              `Variable Name` == "age.at.trt" ~ "Age as continuous variable",
+                              `Variable Name` == "bmi" ~ "BMI",
+                              `Variable Name` == "mhsmopr" ~ "Smoker status",
+                              `Variable Name` == "m.ast" ~ "Asthma status",
+                              `Variable Name` == "child5" ~ "Indicator other children < 5 years of age in home",
+                              `Variable Name` == "season" ~ "RSV season intensity score at time of birth",
+                              `Variable Name` == "smoker" ~ "Indicator of infant living with smoker",
+                              `Variable Name` == "daycare" ~ "Indicator of daycare, or infant living in home with daycare attendee",
+                              `Variable Name` == "prebrth" ~ "Number of previous children",
+                              `Variable Name` == "hiv" ~ "HIV"),
+         Comments = case_when(`Variable Name` == "prebrth" ~ "dropped from analysis",
+                              `Variable Name` == "hiv" ~ "all non-NA values are negative; dropped from analysis",
+                              TRUE ~ "")) %>%
+  rename(`Total missing values` = V1) %>%
+  select(`Variable Name`, Definition, `Total missing values`, Comments) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  column_spec(2, width = "3cm") %>%
+  column_spec(4, width = "3cm") %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 9) %>%
+  footnote(c("Missing values for variables not dropped from analysis were imputed."),
+           threeparttable = TRUE)
+
+```
+
+
+
+
+
+
+```{r pedVars, warning=kable_warnings}
+caption <- "Delivery/Birth variables. \\label{tab:pedVarstable}"
+
+X_ped <- dat.wide.plbo %>%
+  mutate(p.sex = case_when(p.sex == "F" ~ 1,
+                           p.sex == "M" ~ 0),
+         p.lbw = case_when(p.lbw == "Y" ~ 1,
+                           p.lbw == "N" ~ 0),
+         ga = ga * 7,                                      # Convert ga to days in data package !!!!
+         p.small = case_when(p.small == "Y" ~ 1,
+                             p.small == "N" ~ 0),
+         p.igr = case_when(p.igr == "Y" ~ 1,
+                           p.igr == "N" ~ 0),
+         vacc2birthMORETHAN30 = case_when(vacc2birth >= 30 ~ 1,
+                                          vacc2birth < 30 ~ 0)) %>%
+  select(p.sex, iwt, p.lbw, iwtlen, hdcirc,
+         ga,
+         p.small, p.igr, vacc2birth, vacc2birthMORETHAN30) # Should vacc2birthLESSTHAN30 be coded 1 for >=30 days, and 0 for 14-29 days?
+
+X_ped %>% map(~sum(is.na(.))) %>% as.data.frame() %>% t() %>% as.data.frame() %>%
+  tibble::rownames_to_column(var = "Variable Name") %>%
+  filter(!`Variable Name` %in% c("vacc2birth", "vacc2birthMORETHAN30")) %>%
+  mutate(V1 = paste0(V1, "/", nrow(X_ped), " (", format(round((V1/nrow(X_ped))*100, 1), nsmall=1), "%)"),
+         Definition = case_when(`Variable Name` == "p.sex" ~ "Infant gender",
+                              `Variable Name` == "iwt" ~ "Birthweight (continuous)",
+                              `Variable Name` == "p.lbw" ~ "Birthweight (low vs. not low)",
+                              `Variable Name` == "iwtlen" ~ "Ratio of length to birthweight",
+                              `Variable Name` == "hdcirc" ~ "Frontal occipital head circumference",
+                              `Variable Name` == "ga" ~ "Estimated gestational age at birth in days (count variable)",
+                              `Variable Name` == "p.small" ~ "Small for gestational age",
+                              `Variable Name` == "p.igr" ~ "Intrauterine growth retardation"),
+         Comments = "") %>%
+  rename(`Total missing values` = V1) %>%
+  select(`Variable Name`, Definition, `Total missing values`, Comments) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  column_spec(2, width = "3cm") %>%
+  column_spec(4, width = "3cm") %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 9) %>%
+  footnote(c("Two birth variables, 1) indicator of evidence for GBS colonization, and 2) exposure to intrapartum antibiotic prophylaxis, were not received in data transfer from Novavax.",
+              "Missing values for variables not dropped from analysis were imputed."),
+           threeparttable = TRUE)
+
+```
+
+
+
+
+
+
+
+
+```{r learner-screens, warning=kable_warnings}
+caption <- "All learner-screen combinations (28 in total) used as input to the superlearner. The k parameter allows models
+with at most k covariates and is appended at the end of the screen name. k ranges from 1:8 for both the maternal enrollment and birth/delivery variable sets. \\label{tab:learnerScreencombo}"
+
+load(file = paste0(here(), "/correlates_report/SL_risk_score/input/maternal_compositeEndpoint.rda"))
+maternal_compositeEndpoint %>%
+  filter(k==2 & !Learner %in% c("SL", "Discrete SL")) %>%
+  select(Learner, Screen) %>%
+  mutate(Screen = as.factor(str_replace(Screen, "=2", "")),
+         Screen = fct_relevel(Screen, c("all_k", "glmnet_k", "univar_logistic_pval_k",
+                                        "highcor_random_k")),
+         Learner = as.factor(Learner),
+         Learner = fct_relevel(Learner, c("SL.mean", "SL.glm", "SL.glm.interaction", 
+                                              "SL.bayesglm", "SL.step", "SL.glmnet",
+                                              "SL.gam", "SL.cforest", "SL.xgboost"))) %>%
+  arrange(Learner, Screen) %>% 
+  rename("Screen*" = Screen) %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 9) %>%
+  column_spec(1:2, width = "5cm") %>%
+  row_spec(0,bold=TRUE) %>% 
+  collapse_rows(columns = 1, valign = "top", latex_hline = "major") %>%
+  footnote(c("*Screen details:", 
+             "all_k: includes all variables",
+             "glmnet_k: includes variables with non-zero coefficients in the standard implementation of SL.glmnet that optimizes the lasso tuning parameter via cross-validation",
+             "univar_logistic_pval_k: Wald test 2-sided p-value in a logistic regression model < 0.10",
+             "highcor_random_k: if pairs of quantitative variables with Spearman rank correlation > 0.90, select one of the variables at random"),
+           threeparttable = TRUE)
+
+```
+
+
+
+`r visc_clearpage()`
+
+```{r load-all-SLobjects, message=FALSE, error=FALSE, warning=FALSE}
+  source(paste0(here(), "/correlates_report/SL_risk_score/plotting/define-screens-and-algs.R"))
+  source(paste0(here(), "/correlates_report/SL_risk_score/cluster_code/utils.R"))
+  #source(paste0(here(), "/correlates_report/SL_risk_score/plot_assays.R"))
+  source(paste0(here(), "/correlates_report/SL_risk_score/plotting/make_forest_plot.R"))
+  library("cvAUC")
+  library("tidyr")
+  library("dplyr")
+  library("cowplot")
+  library("ggplot2")
+  library("vimp")
+  library("kyotil")
+  library("kableExtra")
+  library(gridExtra)
+  method <- "method.CC_nloglik" # since SuperLearner relies on this to be in GlobalEnv
+  ggplot2::theme_set(theme_cowplot())
+  
+  load(file = paste0(here(), "/correlates_report/SL_risk_score/input/maternal_endpoint1.rda"))
+  load(file = paste0(here(), "/correlates_report/SL_risk_score/input/maternal_endpoint2.rda"))
+  load(file = paste0(here(), "/correlates_report/SL_risk_score/input/pediatric_endpoint1.rda"))
+  load(file = paste0(here(), "/correlates_report/SL_risk_score/input/pediatric_endpoint2.rda"))
+
+```
+
+
+
+```{r riskscore-SLperformance, warning=kable_warnings}
+caption <- "Superlearner performance (CV-AUCs) for each k, variable set, and endpoint. The k parameter allows models
+with at most k covariates. k ranges from 1:8 for both maternal enrollment and birth/delivery variable sets. \\label{tab:SLperfriskscore}"
+
+mat_y1 <- maternal_endpoint1 %>%
+  filter(Learner == "SL") %>%
+  select(k, AUCstr) %>%
+  rename(`maternal vars: endpoint 1` = AUCstr)
+
+mat_y2 <- maternal_endpoint2 %>%
+  filter(Learner == "SL") %>%
+  select(k, AUCstr) %>%
+  rename(`maternal vars: endpoint 2` = AUCstr)
+
+ped_y1 <- pediatric_endpoint1 %>%
+  filter(Learner == "SL") %>%
+  select(k, AUCstr) %>%
+  rename(`birth vars: endpoint 1` = AUCstr)
+
+ped_y2 <- pediatric_endpoint2 %>%
+  filter(Learner == "SL") %>%
+  select(k, AUCstr) %>%
+  rename(`birth vars: endpoint 2` = AUCstr)
+
+mat_y1 %>%
+  full_join(mat_y2, by="k") %>%
+  full_join(ped_y1, by="k") %>%
+  full_join(ped_y2, by="k") %>%
+  kable(
+    format = output_type,
+    booktabs = TRUE,
+    linesep = "",
+    caption = caption
+  ) %>%
+  column_spec(2:3, width = "3.5cm") %>%
+  column_spec(4:5, width = "3.0cm") %>%
+  kable_styling(latex_options = c("hold_position"),
+                font_size = 7)
+
+```
+
+
+
+## Most parsimonious (lowest k) superlearner models with optimal CV-AUC selected to derive the risk score
+
+### Maternal enrollment variable set
+
+
+```{r SL-fits-mat1-y1, fig.cap="\\label{fig:riskscoreEndpoint1}Risk score analysis for maternal enrollment variables with k=1 and endpoint 1: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in the placebo group defined by endpoint 1. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=1 and endpoint 1.", fig.width=8}
+# pdf("../graph/meanAUC.meantiter.versus.p24.pdf", width=5, height=5)
+
+top_learner <- maternal_endpoint1 %>%
+  filter(k==1) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+
+
+```{r SL-fits-mat2-y2, fig.cap="\\label{fig:riskscoreEndpoint2}Risk score analysis for maternal enrollment variables with k=2 and endpoint 2: Plot shows CV-AUC point estimates and 95\\% confidence intervals for the Super Learner and all models trained to classify RSV cases in the placebo group defined by endpoint 2. Learners are sorted by their CV-AUC point estimates.", message=FALSE, warning=FALSE, fig.scap="Risk score analysis for maternal enrollment variables with k=2 and endpoint 2.", fig.width=8}
+
+top_learner <- maternal_endpoint2 %>%
+  filter(k==2) %>%
+  make_forest_plot()
+
+grid.arrange(top_learner$top_learner_nms_plot, top_learner$top_learner_plot, ncol=2)
+
+```
+

@@ -1,0 +1,29 @@
+## Mediation analysis
+
+We performed mediation analysis to estimate the proportion of VE mediated by each of the D14 and fold rise markers (@tchetgen2013inverse, @cowling2019influenza), for each of endpoints 1 and 2. The estimated proportions of VE mediated by the marker turned out to be negative, indicating that certain assumptions of this method, most likely those related to the distributions of markers in the vaccine and placebo arms, were violated in this dataset.  Though specified in the SAP, the available data did not support a reliable mediation analysis. Thus, mediation results have not been reported.
+
+<!-- A possible explanation is the positivity assumption, i.e. the distributions of the marker in the two treatment arms have the same support, is not quite satisfied in this dataset. -->
+<!-- The negative proportion may be caused by the excessive weights estimated in the second step for the vaccine recipients with low immune responses. For example, the lowest EIA.log14d10 in the vaccine arm is 2.643453 and the corresponding individual has an estimated weight of 381.7. The large weight means that this individual is very unlikely to be in the vaccine arm based on the marker. For comparison, in the Cowling et al. dataset (@cowling2019influenza), the largest weight is 3.7.  -->
+
+
+<!-- If we apply a transformation of the weights estimated in the second step, e.g. cubic root, then the proportion would become positive. Another option is to create a discretized version of the marker variable so that the distributions of the marker in the placebo and vaccine arms share more support. Or stabilized weights from Bryan S. Blette's dissertation may work. -->
+
+
+<!-- \begin{table}[H] -->
+<!--     \centering -->
+<!--     \input{CoP_Youyi/input/mediation.tex} -->
+<!--     \caption{Mediation results for endpoint 2, Day 14 EIA. } -->
+<!--     \label{tab:mediation} -->
+<!-- \end{table} -->
+
+
+<!-- \begin{figure}[H] -->
+<!--     \centering -->
+<!--     \includegraphics[width=\textwidth]{CoP_Youyi/input/boxplots_rsv_cowling} -->
+<!--     \caption{Boxplots of markers by treatment.} -->
+<!--     \label{fig:boxplots_rsv_cowling} -->
+<!-- \end{figure} -->
+
+
+
+\clearpage
